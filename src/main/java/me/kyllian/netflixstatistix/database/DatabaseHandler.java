@@ -16,7 +16,8 @@ public class DatabaseHandler {
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        //TODO: Handle database connection
+
+
     }
 
 
