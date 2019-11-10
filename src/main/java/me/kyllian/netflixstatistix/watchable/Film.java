@@ -16,5 +16,34 @@ public class Film {
         this.ageIndicator = ageIndicator;
     }
 
+    public String getTitle() {
+        return title;
+    }
 
+    public int getTimeDuration() {
+        return timeDuration;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public int getAgeIndicator() {
+        return ageIndicator;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "title='" + title + '\'' +
+                ", timeDuration=" + timeDuration +
+                ", genre='" + genre + '\'' +
+                ", language='" + language + '\'' +
+                ", ageIndicator=" + ageIndicator +
+                '}';
+    }
 }

@@ -20,11 +20,39 @@ public class Series {
         this.serialNumber = serialNumber;
     }
 
+    public String getTitle() {
+        return title;
+    }
 
+    public int getTimeDuration() {
+        return timeDuration;
+    }
 
+    public String getGenre() {
+        return genre;
+    }
 
+    public String getLanguage() {
+        return language;
+    }
 
+    public int getAgeIndicator() {
+        return ageIndicator;
+    }
 
+    public int getSerialNumber() {
+        return serialNumber;
+    }
 
-
+    @Override
+    public String toString() {
+        return "Series{" +
+                "title='" + title + '\'' +
+                ", timeDuration=" + timeDuration +
+                ", genre='" + genre + '\'' +
+                ", language='" + language + '\'' +
+                ", ageIndicator=" + ageIndicator +
+                ", serialNumber=" + serialNumber +
+                '}';
+    }
 }
