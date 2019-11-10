@@ -4,6 +4,7 @@ import me.kyllian.netflixstatistix.user.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DatabaseConnection {
@@ -31,6 +32,33 @@ public class DatabaseConnection {
         preparedStatement.setString(7, user.getWatchingProfiles().toString());
         preparedStatement.execute();
         return this;
+    }
+
+    public boolean emailExistsAndDisconnect(String email) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM users WHERE email = ?");
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        disconnect();
+        return false;
+    }
+
+    public String getHashedPasswordAndDisconnect(String email) {
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT password FROM users WHERE email = ?");
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                return resultSet.getString(1);
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     public void disconnect() {

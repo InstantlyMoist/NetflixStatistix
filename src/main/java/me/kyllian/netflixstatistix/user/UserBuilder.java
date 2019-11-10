@@ -1,8 +1,12 @@
 package me.kyllian.netflixstatistix.user;
 
+import me.kyllian.netflixstatistix.database.DatabaseConnection;
 import me.kyllian.netflixstatistix.database.PasswordEncryptor;
 import me.kyllian.netflixstatistix.exceptions.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,18 +56,21 @@ public class UserBuilder {
     }
 
     public UserBuilder withPassword(String password) {
-        if (password.length() < 8) inputInvalidException.addType(InvalidFieldType.PASSWORDUNSAFE); //TODO: Add more checks because safety
+        if (password.length() < 8)
+            inputInvalidException.addType(InvalidFieldType.PASSWORDUNSAFE); //TODO: Add more checks because safety
         this.password = PasswordEncryptor.encrypt(password);
         return this;
     }
 
     public UserBuilder checkRepeatPassword(String password) {
-        if (!this.password.equals(PasswordEncryptor.encrypt(password))) inputInvalidException.addType(InvalidFieldType.DIFFERENTPASSWORD);
+        if (!this.password.equals(PasswordEncryptor.encrypt(password)))
+            inputInvalidException.addType(InvalidFieldType.DIFFERENTPASSWORD);
         return this;
     }
 
     public UserBuilder withEmail(String email) {
-        //TODO: Check if email already exists
+        if (new DatabaseConnection().connect().emailExistsAndDisconnect(email))
+            inputInvalidException.addType(InvalidFieldType.EMAILEXISTS);
         if (!isEmailValid(email)) inputInvalidException.addType(InvalidFieldType.EMAIL);
         this.email = email;
         return this;
@@ -93,6 +100,22 @@ public class UserBuilder {
     public User build() throws InputInvalidException {
         if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
         return new User(firstName, lastName, password, email, adress, birthDate);
+    }
+
+    public User login() throws InputInvalidException {
+        if (!inputInvalidException.getFoundTypes().contains(InvalidFieldType.EMAILEXISTS)) {
+            inputInvalidException.addIgnoredType(InvalidFieldType.EMAILEXISTS);
+            inputInvalidException.addType(InvalidFieldType.UNKNOWNACCOUNT);
+            throw inputInvalidException;
+        }
+        String hashedPassword = new DatabaseConnection().connect().getHashedPasswordAndDisconnect(email);
+        if (!hashedPassword.equals(PasswordEncryptor.encrypt(password))) {
+            inputInvalidException.addType(InvalidFieldType.INCORRECTPASSWORD);
+            throw inputInvalidException;
+        }
+        // get data
+        System.out.println("Login succesful!");
+        return null;
     }
 
 }
