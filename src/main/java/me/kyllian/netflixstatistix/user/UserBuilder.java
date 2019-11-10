@@ -1,7 +1,9 @@
 package me.kyllian.netflixstatistix.user;
 
+import me.kyllian.netflixstatistix.database.PasswordEncryptor;
 import me.kyllian.netflixstatistix.exceptions.FirstNameInvalidException;
 import me.kyllian.netflixstatistix.exceptions.LastNameInvalidException;
+import me.kyllian.netflixstatistix.exceptions.PasswordDifferentException;
 import me.kyllian.netflixstatistix.exceptions.PasswordUnsafeException;
 
 import java.util.Date;
@@ -38,7 +40,14 @@ public class UserBuilder {
     }
 
     public UserBuilder withPassword(String password) throws PasswordUnsafeException {
-        if (password.length() < 8) throw new PasswordUnsafeException("Password is unsafe"); //TODO: Add more checks
+        if (password.length() < 8) throw new PasswordUnsafeException("Password is unsafe"); //TODO: Add more checks because safety
+        this.password = PasswordEncryptor.encrypt(password);
         return this;
     }
+
+    public UserBuilder checkRepeatPassword(String password) throws PasswordDifferentException {
+        if (!this.password.equals(PasswordEncryptor.encrypt(password))) throw new PasswordDifferentException("Password is different!");
+        return this;
+    }
+    
 }
