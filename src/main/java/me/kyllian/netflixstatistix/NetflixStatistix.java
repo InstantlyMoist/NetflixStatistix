@@ -1,11 +1,12 @@
 package me.kyllian.netflixstatistix;
 
-import com.sun.tools.jdeprscan.scan.Scan;
 import me.kyllian.netflixstatistix.database.DatabaseHandler;
 import me.kyllian.netflixstatistix.database.PasswordEncryptor;
+import me.kyllian.netflixstatistix.exceptions.*;
+import me.kyllian.netflixstatistix.user.User;
+import me.kyllian.netflixstatistix.user.UserBuilder;
 
-import java.io.Reader;
-import java.util.ResourceBundle;
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class NetflixStatistix {
@@ -19,13 +20,6 @@ public class NetflixStatistix {
         // Open profiles screen
         // A profile will contain the watching data
         // There will be classes for series and films so we can create/remove series easily.
-
-        /*try {
-            ResourceBundle resourceBundle = ResourceBundle.getBundle("dbconfig");
-            System.out.println(resourceBundle.getString("db.driver"));
-        } catch (Exception exception) {
-            exception.printStackTrace();
-        }*/
 
         Scanner reader = new Scanner(System.in);
         //TODO: Make a GUI around this, check local data first to see if password is saved
@@ -46,12 +40,30 @@ public class NetflixStatistix {
         String number = reader.nextLine();
         System.out.print("Enter postal code: ");
         String postalCode = reader.nextLine();
+        System.out.print("Enter residence : ");
+        String residence = reader.nextLine();
         System.out.print("Enter day of birth: ");
-        String day = reader.nextLine();
+        int day = Integer.parseInt(reader.nextLine());
         System.out.print("Enter month of birth: ");
-        String month = reader.nextLine();
+        int month = Integer.parseInt(reader.nextLine());
         System.out.print("Enter year of birth: ");
-        String year = reader.nextLine();
+        int year = Integer.parseInt(reader.nextLine());
+
+        try {
+            User user = new UserBuilder()
+                    .withFirstName(firstName)
+                    .withLastName(lastName)
+                    .withEmail(email)
+                    .withDate(day, month, year)
+                    .withAdress(streetName, number, postalCode, residence)
+                    .withPassword(password)
+                    .checkRepeatPassword(repeatPassword)
+                    .build();
+            System.out.println("Input validated!");
+        } catch (InputInvalidException IIE) {
+            System.out.println(IIE.getFoundTypes());
+        }
+        // User object create succesfdully
 
 
         new DatabaseHandler();

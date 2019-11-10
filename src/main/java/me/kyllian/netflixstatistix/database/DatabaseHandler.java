@@ -14,7 +14,7 @@ public class DatabaseHandler {
             Class.forName(resourceBundle.getString("db.driver"));
             Connection con = DriverManager.getConnection(resourceBundle.getString("db.url"), resourceBundle.getString("db.username"), resourceBundle.getString("db.password"));
             Statement stmt = con.createStatement();
-            stmt.executeUpdate("CREATE TABLE TEST (NAME VARCHAR(10) NOT NULL )");
+            //stmt.executeUpdate("CREATE TABLE TEST (NAME VARCHAR(10) NOT NULL )");
         } catch (Exception exception) {
             exception.printStackTrace();
         }

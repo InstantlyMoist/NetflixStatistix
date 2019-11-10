@@ -1,53 +1,97 @@
 package me.kyllian.netflixstatistix.user;
 
 import me.kyllian.netflixstatistix.database.PasswordEncryptor;
-import me.kyllian.netflixstatistix.exceptions.FirstNameInvalidException;
-import me.kyllian.netflixstatistix.exceptions.LastNameInvalidException;
-import me.kyllian.netflixstatistix.exceptions.PasswordDifferentException;
-import me.kyllian.netflixstatistix.exceptions.PasswordUnsafeException;
+import me.kyllian.netflixstatistix.exceptions.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class UserBuilder {
 
-    private String firstName; //done
-    private String lastName; //done
-    private String password; //password should be checked and immediately encrypted
+    private String firstName;
+    private String lastName;
+    private String password;
     private String email;
 
     private Adress adress;
     private Date birthDate;
 
+    private InputInvalidException inputInvalidException;
 
-    public boolean isNameValid(String name) {
-        Pattern pattern = Pattern.compile("^[A-Z][a-z]{2,}(?: [A-Z][a-z]*)*$");
-        Matcher matcher = pattern.matcher(name);
-        return matcher.matches();
+    public UserBuilder() {
+        inputInvalidException = new InputInvalidException();
     }
 
-    public UserBuilder withFirstName(String firstName) throws FirstNameInvalidException {
-        if (!isNameValid(firstName)) throw new FirstNameInvalidException("Invalid first name");
+    public boolean isNameValid(String name) {
+        return name.matches("^[A-Z][a-z]{2,}(?: [A-Z][a-z]*)*$");
+    }
+
+    public boolean isPostalCodeValid(String postalCode) {
+        return postalCode.matches("^[0-9]{4}[[A-Z][a-z]]{2}$");
+    }
+
+    public boolean isNumberValid(String number) {
+        return number.matches("^[0-9]+[[A-Z][a-z]]*$");
+    }
+
+    public boolean isEmailValid(String email) {
+        return email.matches("^[\\w-_\\\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$");
+    }
+
+    public UserBuilder withFirstName(String firstName) {
+        if (!isNameValid(firstName)) inputInvalidException.addType(InvalidFieldType.FIRSTNAME);
         else this.firstName = firstName;
         return this;
     }
 
-    public UserBuilder withLastName(String lastName) throws LastNameInvalidException {
-        if (!isNameValid(lastName)) throw new LastNameInvalidException("Invalid last name");
+    public UserBuilder withLastName(String lastName) {
+        if (!isNameValid(lastName)) inputInvalidException.addType(InvalidFieldType.LASTNAME);
         else this.lastName = lastName;
         return this;
     }
 
-    public UserBuilder withPassword(String password) throws PasswordUnsafeException {
-        if (password.length() < 8) throw new PasswordUnsafeException("Password is unsafe"); //TODO: Add more checks because safety
+    public UserBuilder withPassword(String password) {
+        if (password.length() < 8) inputInvalidException.addType(InvalidFieldType.PASSWORDUNSAFE); //TODO: Add more checks because safety
         this.password = PasswordEncryptor.encrypt(password);
         return this;
     }
 
-    public UserBuilder checkRepeatPassword(String password) throws PasswordDifferentException {
-        if (!this.password.equals(PasswordEncryptor.encrypt(password))) throw new PasswordDifferentException("Password is different!");
+    public UserBuilder checkRepeatPassword(String password) {
+        if (!this.password.equals(PasswordEncryptor.encrypt(password))) inputInvalidException.addType(InvalidFieldType.DIFFERENTPASSWORD);
         return this;
     }
-    
+
+    public UserBuilder withEmail(String email) {
+        if (!isEmailValid(email)) inputInvalidException.addType(InvalidFieldType.EMAIL);
+        this.email = email;
+        return this;
+    }
+
+    public UserBuilder withAdress(String street, String number, String postalCode, String residence) {
+        if (!isNameValid(street)) inputInvalidException.addType(InvalidFieldType.STREET);
+        if (!isNumberValid(number)) inputInvalidException.addType(InvalidFieldType.NUMBER);
+        if (!isPostalCodeValid(postalCode)) inputInvalidException.addType(InvalidFieldType.POSTALCODE);
+        if (!isNameValid(residence)) inputInvalidException.addType(InvalidFieldType.RESIDENCE);
+        this.adress = new Adress(street, number, postalCode, residence);
+        return this;
+    }
+
+    public UserBuilder withDate(int day, int month, int year) {
+        try {
+            String dayString = day < 10 ? "0" + day : day + "";
+            String monthString = month < 10 ? "0" + month : month + "";
+            Date date = new SimpleDateFormat("yyyy-MM-dd").parse(year + "-" + monthString + "-" + dayString);
+            this.birthDate = date;
+        } catch (ParseException exception) {
+            inputInvalidException.addType(InvalidFieldType.BIRTHDATE);
+        }
+        return this;
+    }
+
+    public User build() throws InputInvalidException {
+        if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
+        return new User(firstName, lastName, password, email, adress, birthDate);
+    }
+
 }
