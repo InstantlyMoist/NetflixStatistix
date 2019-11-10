@@ -2,6 +2,8 @@ package me.kyllian.netflixstatistix;
 
 import me.kyllian.netflixstatistix.database.DatabaseHandler;
 
+import java.util.ResourceBundle;
+
 public class NetflixStatistix {
 
     public static void main(String[] args) {
@@ -14,6 +16,12 @@ public class NetflixStatistix {
         // A profile will contain the watching data
         // There will be classes for series and films so we can create/remove series easily.
 
+        /*try {
+            ResourceBundle resourceBundle = ResourceBundle.getBundle("dbconfig");
+            System.out.println(resourceBundle.getString("db.driver"));
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }*/
 
 
         new DatabaseHandler();

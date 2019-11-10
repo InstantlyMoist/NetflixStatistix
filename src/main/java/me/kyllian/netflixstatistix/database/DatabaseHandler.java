@@ -9,7 +9,7 @@ public class DatabaseHandler {
 
     public DatabaseHandler() {
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("");
             Connection con = DriverManager.getConnection("", "", "");
             Statement stmt = con.createStatement();
             stmt.executeUpdate("CREATE TABLE TEST (NAME VARCHAR(10) NOT NULL )");
