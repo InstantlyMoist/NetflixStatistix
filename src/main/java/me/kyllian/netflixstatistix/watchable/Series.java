@@ -11,13 +11,13 @@ public class Series {
 
     //serie bestaat uit minimaal 1 aflevering en aflevering hoort bij 1 serie
 
-    public Series(String title, int timeDuration, String genre, String language, int ageIndicator, int serialNumber){
+    public Series(String title, int timeDuration, String genre, String language, int ageIndicator){
         this.title = title;
         this.timeDuration = timeDuration;
         this.genre = genre;
         this.language = language;
         this.ageIndicator = ageIndicator;
-        this.serialNumber = serialNumber;
+
     }
 
     public String getTitle() {
