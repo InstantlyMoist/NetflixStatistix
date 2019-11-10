@@ -63,6 +63,7 @@ public class UserBuilder {
     }
 
     public UserBuilder withEmail(String email) {
+        //TODO: Check if email already exists
         if (!isEmailValid(email)) inputInvalidException.addType(InvalidFieldType.EMAIL);
         this.email = email;
         return this;

@@ -1,11 +1,13 @@
 package me.kyllian.netflixstatistix;
 
+import me.kyllian.netflixstatistix.database.DatabaseConnection;
 import me.kyllian.netflixstatistix.database.DatabaseHandler;
 import me.kyllian.netflixstatistix.database.PasswordEncryptor;
 import me.kyllian.netflixstatistix.exceptions.*;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
 
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -59,9 +61,14 @@ public class NetflixStatistix {
                     .withPassword(password)
                     .checkRepeatPassword(repeatPassword)
                     .build();
+            new DatabaseConnection().connect().uploadUser(user).disconnect();
             System.out.println("Input validated!");
+            // TODO: Connect to database and upload user
         } catch (InputInvalidException IIE) {
             System.out.println(IIE.getFoundTypes());
+        } catch (SQLException SE) {
+            SE.printStackTrace();
+            System.out.println("Uploading failed");
         }
         // User object create succesfdully
 
