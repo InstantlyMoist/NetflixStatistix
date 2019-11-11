@@ -1,16 +1,18 @@
 package me.kyllian.netflixstatistix.user;
 
+import java.io.*;
+
 public class Adress {
 
     private String street;
     private String number;
-    private String postcode;
+    private String postalCode;
     private String residence;
 
-    public Adress(String street, String number, String postcode, String residence) {
+    public Adress(String street, String number, String postalCode, String residence) {
         this.street = street;
         this.number = number;
-        this.postcode = postcode;
+        this.postalCode = postalCode;
         this.residence = residence;
     }
 
@@ -18,7 +20,7 @@ public class Adress {
         String[] split = dataString.split(":");
         this.street = split[0];
         this.number = split[1];
-        this.postcode = split[2];
+        this.postalCode = split[2];
         this.residence = split[3];
     }
 
@@ -30,16 +32,12 @@ public class Adress {
         return number;
     }
 
-    public String getPostcode() {
-        return postcode;
+    public String getPostalCode() {
+        return postalCode;
     }
 
     public String getResidence() {
         return residence;
     }
 
-    @Override
-    public String toString() {
-        return street + ":" + number + ":" + postcode + ":" + residence;
-    }
 }

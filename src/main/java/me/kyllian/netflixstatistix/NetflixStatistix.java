@@ -25,7 +25,7 @@ public class NetflixStatistix {
 
         Scanner reader = new Scanner(System.in);
         //TODO: Make a GUI around this, check local data first to see if password is saved
-        System.out.println("Please login!");
+        /*System.out.println("Please login!");
         System.out.print("email: ");
         String email = reader.nextLine();
         System.out.print("password: ");
@@ -37,9 +37,9 @@ public class NetflixStatistix {
                     .login();
         } catch (InputInvalidException IIE) {
             System.out.println(IIE.getFoundTypes());
-        }
+        }*/
 
-        /*System.out.println("Please register!");
+        System.out.println("Please register!");
         System.out.print("Enter first name: ");
         String firstName = reader.nextLine();
         System.out.print("Enter last name: ");
@@ -47,9 +47,9 @@ public class NetflixStatistix {
         System.out.print("Enter email: ");
         String email = reader.nextLine();
         System.out.print("Enter password: ");
-        String password = PasswordEncryptor.encrypt(reader.nextLine());
+        String password = reader.nextLine();
         System.out.print("Enter repeat password: ");
-        String repeatPassword = PasswordEncryptor.encrypt(reader.nextLine());
+        String repeatPassword = reader.nextLine();
         System.out.print("Enter street name: ");
         String streetName = reader.nextLine();
         System.out.print("Enter number + addition: ");
@@ -83,7 +83,7 @@ public class NetflixStatistix {
         } catch (SQLException SE) {
             SE.printStackTrace();
             System.out.println("Uploading failed");
-        }*/
-        // User object create succesfdully
+        }
+        // Uer object create succesfdully
     }
 }

@@ -99,7 +99,9 @@ public class UserBuilder {
 
     public User build() throws InputInvalidException {
         if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
-        return new User(firstName, lastName, password, email, adress, birthDate);
+        User newUser = new User(firstName, lastName, password, email, adress, birthDate);
+        newUser.addWatchingProfile(new WatchingProfile()); //TODO: Return well constructed watching profiel with default recommandations
+        return newUser;
     }
 
     public User login() throws InputInvalidException {
@@ -109,13 +111,12 @@ public class UserBuilder {
             throw inputInvalidException;
         }
         String hashedPassword = new DatabaseConnection().connect().getHashedPasswordAndDisconnect(email);
-        if (!hashedPassword.equals(PasswordEncryptor.encrypt(password))) {
+        if (!hashedPassword.equals(password)) {
+            System.out.println(password);
             inputInvalidException.addType(InvalidFieldType.INCORRECTPASSWORD);
             throw inputInvalidException;
         }
-        // get data
-        System.out.println("Login succesful!");
-        return null;
+        return new User(email, password);
     }
 
 }

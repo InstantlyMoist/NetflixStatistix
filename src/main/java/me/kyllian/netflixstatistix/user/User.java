@@ -1,6 +1,9 @@
 package me.kyllian.netflixstatistix.user;
 
+import me.kyllian.netflixstatistix.database.DatabaseConnection;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -12,6 +15,7 @@ public class User {
     private String email;
 
     private Adress adress;
+    private String adressID;
     private Date birthDate;
 
     private List<WatchingProfile> watchingProfiles;
@@ -32,32 +36,33 @@ public class User {
         this.email = email;
         this.password = password;
 
+        this.watchingProfiles = new ArrayList<WatchingProfile>();
+
+        List<String> fetchedData = new DatabaseConnection()
+                .connect()
+                .setFetchable(this)
+                .fetchField("first_name")
+                .fetchField("last_name")
+                .fetchField("address")
+                .fetchField("birth_date")
+                .fetchField("watching_profiles")
+                .getFetchedDataAndDisconnect();
+        this.firstName = fetchedData.get(0);
+        this.lastName = fetchedData.get(1);
+        this.adressID = fetchedData.get(2);
+        this.birthDate = new Date(fetchedData.get(3));
+        for (String watchingProfile : Arrays.asList(fetchedData.get(4))) {
+            WatchingProfile found = WatchingProfile.fromString(watchingProfile);
+            System.out.println(found.badTest);
+            watchingProfiles.add(found);
+        }
+
         //TODO: Add database connection to fetch watching data.
     }
 
-    /*
-        User
-        Containing:
-          - First name - VARCHAR(32)
-          - Last name - VARCHAR(32)
-          - Password (Needs to be encrypted using the #encrypt method before sending!) - VARCHAR
-
-          - E-mail VARCHAR
-          - Adress (Straat, huisnummer + toevoeging, postcode)
-            - Straat - VARCHAR
-            - Huisnummer - SMALLINT
-            - Toevoeging - VARCHAR(25)
-            - Postcode - VARCHAR(7)
-            - Woonplaats - VARCHART
-          - Geboortedatum (Dag, Maand, Jaar)
-            - Dag - SMALLINT ( 1 - 31 )
-            - Maand - SMALLINT ( 1 - 12 )
-            - Jaar - SMALLINT ( 1900 - 2019 )
-
-
-          - List of watching profiles
-
-         */
+    public void addWatchingProfile(WatchingProfile watchingProfile) {
+        if (!watchingProfiles.contains(watchingProfile)) watchingProfiles.add(watchingProfile);
+    }
 
     public String getFirstName() {
         return firstName;
@@ -85,5 +90,13 @@ public class User {
 
     public List<WatchingProfile> getWatchingProfiles() {
         return watchingProfiles;
+    }
+
+    public String getAdressID() {
+        return adressID;
+    }
+
+    public void setAdressID(String adressID) {
+        this.adressID = adressID;
     }
 }
