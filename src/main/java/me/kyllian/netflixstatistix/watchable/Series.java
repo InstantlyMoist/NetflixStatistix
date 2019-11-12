@@ -3,7 +3,6 @@ package me.kyllian.netflixstatistix.watchable;
 public class Series {
 
     private String title;
-    private int timeDuration;
     private String genre;
     private String language;
     private int ageIndicator;
@@ -13,7 +12,6 @@ public class Series {
 
     public Series(String title, int timeDuration, String genre, String language, int ageIndicator){
         this.title = title;
-        this.timeDuration = timeDuration;
         this.genre = genre;
         this.language = language;
         this.ageIndicator = ageIndicator;
@@ -22,10 +20,6 @@ public class Series {
 
     public String getTitle() {
         return title;
-    }
-
-    public int getTimeDuration() {
-        return timeDuration;
     }
 
     public String getGenre() {
@@ -48,7 +42,6 @@ public class Series {
     public String toString() {
         return "Series{" +
                 "title='" + title + '\'' +
-                ", timeDuration=" + timeDuration +
                 ", genre='" + genre + '\'' +
                 ", language='" + language + '\'' +
                 ", ageIndicator=" + ageIndicator +

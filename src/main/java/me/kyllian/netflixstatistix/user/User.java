@@ -43,9 +43,15 @@ public class User {
                 .setFetchable(this)
                 .fetchField("first_name")
                 .fetchField("last_name")
-                .fetchField("address")
+                .fetchField("address_id")
                 .fetchField("birth_date")
                 .fetchField("watching_profiles")
+                .getFetchedDataAndDisconnect();
+
+        List<String> fetchedDataa = new DatabaseConnection()
+                .connect()
+                .setFetchable(this)
+                .fetchFields("first_name", "last_name", "address_id", "birth_date", "watching_profiles")
                 .getFetchedDataAndDisconnect();
         this.firstName = fetchedData.get(0);
         this.lastName = fetchedData.get(1);

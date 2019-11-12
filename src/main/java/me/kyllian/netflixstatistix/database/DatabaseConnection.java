@@ -1,7 +1,6 @@
 package me.kyllian.netflixstatistix.database;
 
 import me.kyllian.netflixstatistix.user.User;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -75,6 +74,13 @@ public class DatabaseConnection {
 
     public DatabaseConnection setFetchable(User fetchable) {
         this.fetchable = fetchable;
+        return this;
+    }
+
+    public DatabaseConnection fetchFields(String... field) {
+        for (String foundField : field) {
+            fetchField(foundField);
+        }
         return this;
     }
 
