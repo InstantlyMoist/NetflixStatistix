@@ -6,14 +6,54 @@ import me.kyllian.netflixstatistix.database.PasswordEncryptor;
 import me.kyllian.netflixstatistix.exceptions.*;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 
+import java.io.InputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class NetflixStatistix {
 
     public static void main(String[] args) {
+
+        try {
+            HttpClient httpclient = HttpClients.createDefault();
+            HttpPost httppost = new HttpPost("http://localhost:8080");
+            List<NameValuePair> params = new ArrayList<NameValuePair>(11);
+            params.add(new BasicNameValuePair("identifier", "user"));
+            params.add(new BasicNameValuePair("firstname", "Kyllian"));
+            params.add(new BasicNameValuePair("lastname", "Warmerdam"));
+            params.add(new BasicNameValuePair("password", "password123!"));
+            params.add(new BasicNameValuePair("email", "kyllian007@gmail.com"));
+            params.add(new BasicNameValuePair("street", "Reiendonk"));
+            params.add(new BasicNameValuePair("number", "36"));
+            params.add(new BasicNameValuePair("postalcode", "4824CD"));
+            params.add(new BasicNameValuePair("residence", "Breda"));
+            params.add(new BasicNameValuePair("birthdate", "28-05-2002"));
+            params.add(new BasicNameValuePair("watchingprofiles", "null"));
+            httppost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+
+            HttpResponse response = httpclient.execute(httppost);
+            HttpEntity entity = response.getEntity();
+
+            if (entity != null) {
+                    System.out.println(EntityUtils.toString(entity));
+                    // do something useful
+            }
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
         // Open registration/login prompt
         //
         // Once logged in, construct User object using the Registration data
@@ -23,7 +63,7 @@ public class NetflixStatistix {
         // A profile will contain the watching data
         // There will be classes for series and films so we can create/remove series easily.
 
-        Scanner reader = new Scanner(System.in);
+        //Scanner reader = new Scanner(System.in);
         //TODO: Make a GUI around this, check local data first to see if password is saved
         /*System.out.println("Please login!");
         System.out.print("email: ");
@@ -39,7 +79,7 @@ public class NetflixStatistix {
             System.out.println(IIE.getFoundTypes());
         }*/
 
-        System.out.println("Please register!");
+        /*System.out.println("Please register!");
         System.out.print("Enter first name: ");
         String firstName = reader.nextLine();
         System.out.print("Enter last name: ");
@@ -83,7 +123,7 @@ public class NetflixStatistix {
         } catch (SQLException SE) {
             SE.printStackTrace();
             System.out.println("Uploading failed");
-        }
+        }*/
         // Uer object create succesfdully
     }
 }
