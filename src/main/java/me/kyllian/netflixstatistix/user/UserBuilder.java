@@ -15,7 +15,7 @@ public class UserBuilder {
     private String password;
     private String email;
 
-    private Adress adress;
+    private Address adress;
     private long birthDate;
 
     private InputInvalidException inputInvalidException;
@@ -76,7 +76,7 @@ public class UserBuilder {
         if (!isNumberValid(number)) inputInvalidException.addType(InvalidFieldType.NUMBER);
         if (!isPostalCodeValid(postalCode)) inputInvalidException.addType(InvalidFieldType.POSTALCODE);
         if (!isNameValid(residence)) inputInvalidException.addType(InvalidFieldType.RESIDENCE);
-        this.adress = new Adress(street, number, postalCode, residence);
+        this.adress = new Address(street, number, postalCode, residence);
         return this;
     }
 
@@ -109,7 +109,8 @@ public class UserBuilder {
         if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
 
         User newUser = new User(firstName, lastName, password, email, adress, birthDate);
-        newUser.addWatchingProfile(new WatchingProfile()); //TODO: Return well constructed watching profile with default recommandations
+        newUser.addWatchingProfile(new WatchingProfile("x", 1l));
+        //TODO: Return well constructed watching profile with default recommandations
         return newUser;
     }
 
