@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class NetflixStatistix extends Application {
 
     public static void main(String[] args) {
-        launch(NetflixStatistix.class);
-        boolean register = true;
+        //launch(NetflixStatistix.class);
+        boolean register = false;
 
         Scanner reader = new Scanner(System.in);
         if (register) {

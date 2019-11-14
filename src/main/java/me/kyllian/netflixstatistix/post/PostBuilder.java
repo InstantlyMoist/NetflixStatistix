@@ -10,6 +10,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class PostBuilder {
 
     public PostBuilder() {
         httpClient = HttpClients.createDefault();
+        //httpPost = new HttpPost("http://localhost:8080");
         httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
         attributes = new ArrayList<NameValuePair>();
     }

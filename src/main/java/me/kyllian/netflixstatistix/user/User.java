@@ -1,5 +1,6 @@
 package me.kyllian.netflixstatistix.user;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -30,13 +31,18 @@ public class User {
     }
 
     public User(String jsonData) {
-        JSONObject object = new JSONObject(jsonData.replace("[", "").replace("]", ""));
-        this.firstName = object.getString("first_name");
-        this.lastName =  object.getString("last_name");
-        this.password = object.getString("password");
-        this.email = object.getString("email");
-        this.addressID = "" + object.getInt("address_id");
-        this.birthDate = object.getLong("birth_date");
+        try {
+            JSONObject object = new JSONObject(jsonData.replace("[", "").replace("]", ""));
+            this.firstName = object.getString("first_name");
+            this.lastName =  object.getString("last_name");
+            this.password = object.getString("password");
+            this.email = object.getString("email");
+            this.addressID = "" + object.getInt("address_id");
+            this.birthDate = object.getLong("birth_date");
+        } catch (JSONException exception) {
+            System.out.println(jsonData);
+        }
+        System.out.println(this.toString());
 
         //TODO: Add database connection to fetch watching data.
     }
