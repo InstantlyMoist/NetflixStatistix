@@ -1,6 +1,6 @@
 package me.kyllian.netflixstatistix.user;
 
-import me.kyllian.netflixstatistix.database.DatabaseConnection;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,54 +14,32 @@ public class User {
     private String password;
     private String email;
 
-    private Adress adress;
-    private String adressID;
-    private Date birthDate;
+    private Adress address;
+    private String addressID;
+    private long birthDate;
 
     private List<WatchingProfile> watchingProfiles;
 
-    public User(String firstName, String lastName, String password, String email, Adress adress, Date birthDate) {
+    public User(String firstName, String lastName, String password, String email, Adress address, long birthDate) {
         //TODO: Validate given input, do this before this object has been created.
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
-        this.adress = adress;
+        this.address = address;
         this.birthDate = birthDate;
 
         watchingProfiles = new ArrayList<WatchingProfile>();
     }
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-
-        this.watchingProfiles = new ArrayList<WatchingProfile>();
-
-        List<String> fetchedData = new DatabaseConnection()
-                .connect()
-                .setFetchable(this)
-                .fetchField("first_name")
-                .fetchField("last_name")
-                .fetchField("address_id")
-                .fetchField("birth_date")
-                .fetchField("watching_profiles")
-                .getFetchedDataAndDisconnect();
-
-        List<String> fetchedDataa = new DatabaseConnection()
-                .connect()
-                .setFetchable(this)
-                .fetchFields("first_name", "last_name", "address_id", "birth_date", "watching_profiles")
-                .getFetchedDataAndDisconnect();
-        this.firstName = fetchedData.get(0);
-        this.lastName = fetchedData.get(1);
-        this.adressID = fetchedData.get(2);
-        this.birthDate = new Date(fetchedData.get(3));
-        for (String watchingProfile : Arrays.asList(fetchedData.get(4))) {
-            WatchingProfile found = WatchingProfile.fromString(watchingProfile);
-            System.out.println(found.badTest);
-            watchingProfiles.add(found);
-        }
+    public User(String jsonData) {
+        JSONObject object = new JSONObject(jsonData.replace("[", "").replace("]", ""));
+        this.firstName = object.getString("first_name");
+        this.lastName =  object.getString("last_name");
+        this.password = object.getString("password");
+        this.email = object.getString("email");
+        this.addressID = "" + object.getInt("address_id");
+        this.birthDate = object.getLong("birth_date");
 
         //TODO: Add database connection to fetch watching data.
     }
@@ -74,35 +52,77 @@ public class User {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPassword() {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
     }
 
-    public Adress getAdress() {
-        return adress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Date getBirthDate() {
+    public Adress getAddress() {
+        return address;
+    }
+
+    public void setdAdress(Adress address) {
+        this.address = address;
+    }
+
+    public String getAddressID() {
+        return addressID;
+    }
+
+    public void setAddressID(String addressID) {
+        this.addressID = addressID;
+    }
+
+    public long getBirthDate() {
         return birthDate;
+    }
+
+    public void setBirthDate(long birthDate) {
+        this.birthDate = birthDate;
     }
 
     public List<WatchingProfile> getWatchingProfiles() {
         return watchingProfiles;
     }
 
-    public String getAdressID() {
-        return adressID;
+    public void setWatchingProfiles(List<WatchingProfile> watchingProfiles) {
+        this.watchingProfiles = watchingProfiles;
     }
 
-    public void setAdressID(String adressID) {
-        this.adressID = adressID;
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", address=" + address +
+                ", addressID='" + addressID + '\'' +
+                ", birthDate=" + birthDate +
+                ", watchingProfiles=" + watchingProfiles +
+                '}';
     }
 }

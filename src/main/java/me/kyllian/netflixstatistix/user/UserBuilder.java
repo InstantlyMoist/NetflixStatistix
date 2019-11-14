@@ -1,12 +1,10 @@
 package me.kyllian.netflixstatistix.user;
 
-import me.kyllian.netflixstatistix.database.DatabaseConnection;
 import me.kyllian.netflixstatistix.database.PasswordEncryptor;
 import me.kyllian.netflixstatistix.exceptions.*;
+import me.kyllian.netflixstatistix.post.PostBuilder;
+import org.json.JSONObject;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,7 +17,7 @@ public class UserBuilder {
     private String email;
 
     private Adress adress;
-    private Date birthDate;
+    private long birthDate;
 
     private InputInvalidException inputInvalidException;
 
@@ -69,8 +67,6 @@ public class UserBuilder {
     }
 
     public UserBuilder withEmail(String email) {
-        if (new DatabaseConnection().connect().emailExistsAndDisconnect(email))
-            inputInvalidException.addType(InvalidFieldType.EMAILEXISTS);
         if (!isEmailValid(email)) inputInvalidException.addType(InvalidFieldType.EMAIL);
         this.email = email;
         return this;
@@ -90,7 +86,7 @@ public class UserBuilder {
             String dayString = day < 10 ? "0" + day : day + "";
             String monthString = month < 10 ? "0" + month : month + "";
             Date date = new SimpleDateFormat("yyyy-MM-dd").parse(year + "-" + monthString + "-" + dayString);
-            this.birthDate = date;
+            this.birthDate = date.getTime();
         } catch (ParseException exception) {
             inputInvalidException.addType(InvalidFieldType.BIRTHDATE);
         }
@@ -98,25 +94,32 @@ public class UserBuilder {
     }
 
     public User build() throws InputInvalidException {
+        String response = new PostBuilder().withIdentifier("user")
+                .withAttribute("firstname", firstName)
+                .withAttribute("lastname", lastName)
+                .withAttribute("password", password)
+                .withAttribute("email", email)
+                .withAttribute("street", adress.getStreet())
+                .withAttribute("number", adress.getNumber())
+                .withAttribute("postalcode", adress.getPostalCode())
+                .withAttribute("residence", adress.getResidence())
+                .withAttribute("birthdate", birthDate + "")
+                .withAttribute("watchingprofiles", "null")
+                .postAndGetResponse();
+        if (response.equals("USER_EXISTS")) inputInvalidException.addType(InvalidFieldType.EMAILEXISTS);
         if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
+
         User newUser = new User(firstName, lastName, password, email, adress, birthDate);
-        newUser.addWatchingProfile(new WatchingProfile()); //TODO: Return well constructed watching profiel with default recommandations
+        newUser.addWatchingProfile(new WatchingProfile()); //TODO: Return well constructed watching profile with default recommandations
         return newUser;
     }
 
     public User login() throws InputInvalidException {
-        if (!inputInvalidException.getFoundTypes().contains(InvalidFieldType.EMAILEXISTS)) {
-            inputInvalidException.addIgnoredType(InvalidFieldType.EMAILEXISTS);
-            inputInvalidException.addType(InvalidFieldType.UNKNOWNACCOUNT);
-            throw inputInvalidException;
-        }
-        String hashedPassword = new DatabaseConnection().connect().getHashedPasswordAndDisconnect(email);
-        if (!hashedPassword.equals(password)) {
-            System.out.println(password);
-            inputInvalidException.addType(InvalidFieldType.INCORRECTPASSWORD);
-            throw inputInvalidException;
-        }
-        return new User(email, password);
+        String response = new PostBuilder().withIdentifier("login")
+                .withAttribute("email", email)
+                .withAttribute("password", password)
+                .postAndGetResponse();
+        return new User(response);
     }
 
 }
