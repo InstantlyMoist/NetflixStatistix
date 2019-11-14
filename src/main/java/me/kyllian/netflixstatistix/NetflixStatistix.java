@@ -50,9 +50,7 @@ public class NetflixStatistix {
                         .checkRepeatPassword(repeatPassword)
                         .build();
 
-                //TODO: change build method to send post request
                 System.out.println("Input validated!");
-                // TODO: Connect to database and upload user
             } catch (InputInvalidException IIE) {
                 System.out.println(IIE.getFoundTypes());
             }
@@ -71,14 +69,6 @@ public class NetflixStatistix {
                 System.out.println(IIE.getFoundTypes());
             }
         }
-        /*String response = new PostBuilder()
-                .withIdentifier("login")
-                .withAttribute("email", "kyllian007@gmail.com")
-                .withAttribute("password", "password123!")
-                .postAndGetResponse();
-        System.out.println(response);
-        JSONObject object = new JSONObject(response.replace("[", "").replace("]", ""));
-        System.out.println(object.get("user_id"));*/
         // Open registration/login prompt
         //
         // Once logged in, construct User object using the Registration data
@@ -88,10 +78,5 @@ public class NetflixStatistix {
         // A profile will contain the watching data
         // There will be classes for series and films so we can create/remove series easily.
 
-        //TODO: Make a if (error) return console.error(error.message);
-        //        console.log(results.affectedRows);GUI around this, check local data first to see if password is saved
-
-
-        // Uer object create succesfdully
     }
 }

@@ -1,9 +1,8 @@
 package me.kyllian.netflixstatistix.user;
 
-import me.kyllian.netflixstatistix.database.PasswordEncryptor;
+import me.kyllian.netflixstatistix.post.PasswordEncryptor;
 import me.kyllian.netflixstatistix.exceptions.*;
 import me.kyllian.netflixstatistix.post.PostBuilder;
-import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
