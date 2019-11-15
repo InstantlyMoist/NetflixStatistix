@@ -4,13 +4,15 @@ public class Film {
 
     private String title;
     private int timeDuration;
+    private String description;
     private String genre;
     private String language;
     private int ageIndicator;
 
-    public Film(String title, int timeDuration, String genre, String language, int ageIndicator){
+    public Film(String title, int timeDuration, String description, String genre, String language, int ageIndicator){
         this.title = title;
         this.timeDuration = timeDuration;
+        this.description = description;
         this.genre = genre;
         this.language = language;
         this.ageIndicator = ageIndicator;
@@ -22,6 +24,10 @@ public class Film {
 
     public int getTimeDuration() {
         return timeDuration;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public String getGenre() {
