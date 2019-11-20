@@ -1,7 +1,8 @@
 package me.kyllian.netflixstatistix.user;
 
+import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
+import me.kyllian.netflixstatistix.exceptions.InvalidFieldType;
 import me.kyllian.netflixstatistix.post.PasswordEncryptor;
-import me.kyllian.netflixstatistix.exceptions.*;
 import me.kyllian.netflixstatistix.post.PostBuilder;
 
 import java.text.ParseException;
@@ -119,6 +120,9 @@ public class UserBuilder {
                 .withAttribute("email", email)
                 .withAttribute("password", password)
                 .postAndGetResponse();
+        if (response.equalsIgnoreCase("INVALID_USER")) inputInvalidException.addType(InvalidFieldType.INVALIDUSER);
+        if (response.equalsIgnoreCase("INVALID_PASSWORD")) inputInvalidException.addType(InvalidFieldType.INVALIDPASSWORD);
+        if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
         return new User(response);
     }
 

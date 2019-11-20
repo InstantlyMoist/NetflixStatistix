@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:controller="me.kyllian.netflixstatistix.controllers.LoginController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" styleClass="root">
+    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+
+    <Label text="Welcome to NetflixStatistix" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+
+    <TextField fx:id="emailField" promptText="Enter your email" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <HBox spacing="10" alignment="center"
+          GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button text="Sign In"
+                onAction="#login"/>
+    </HBox>
+
+    <Label fx:id="target"
+          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+    <stylesheets>
+        <URL value="@../css/login.css" />
+    </stylesheets>
+
+</GridPane>

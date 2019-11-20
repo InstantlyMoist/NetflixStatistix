@@ -1,6 +1,9 @@
 package me.kyllian.netflixstatistix;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.user.User;
@@ -11,8 +14,8 @@ import java.util.Scanner;
 public class NetflixStatistix extends Application {
 
     public static void main(String[] args) {
-        //launch(NetflixStatistix.class);
-        boolean register = false;
+        launch(NetflixStatistix.class);
+        /*boolean register = false;
 
         Scanner reader = new Scanner(System.in);
         if (register) {
@@ -80,11 +83,19 @@ public class NetflixStatistix extends Application {
         // Open profiles screen
         // A profile will contain the watching data
         // There will be classes for series and films so we can create/remove series easily.
-
+*/
     }
 
     @Override
     public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
 
+        Scene scene = new Scene(root, 300, 275);
+
+
+
+        stage.setTitle("NetflixStatistix");
+        stage.setScene(scene);
+        stage.show();
     }
 }
