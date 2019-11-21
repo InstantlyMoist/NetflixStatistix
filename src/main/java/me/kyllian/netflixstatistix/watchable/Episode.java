@@ -34,4 +34,4 @@ public class Episode {
 
 
 
-//een aflevering heeft alleen een volgnummer
+//een aflevering heeft alleen een volgnummer en is onderdeel van een serie
