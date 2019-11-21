@@ -88,7 +88,7 @@ public class NetflixStatistix extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
 
         Scene scene = new Scene(root, 300, 275);
 
