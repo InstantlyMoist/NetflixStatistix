@@ -24,8 +24,6 @@
     <Label fx:id="target"
           GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
-    <stylesheets>
-        <URL value="@../css/login.css" />
-    </stylesheets>
+
 
 </GridPane>

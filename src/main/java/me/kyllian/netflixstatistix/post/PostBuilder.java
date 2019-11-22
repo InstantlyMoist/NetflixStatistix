@@ -1,5 +1,9 @@
 package me.kyllian.netflixstatistix.post;
 
+
+
+import me.kyllian.netflixstatistix.NetflixStatistix;
+import me.kyllian.netflixstatistix.controllers.LoginController;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -10,22 +14,25 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
-import javax.swing.text.html.parser.Entity;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class PostBuilder {
 
     private HttpClient httpClient;
-    HttpPost httpPost;
-    List<NameValuePair> attributes;
+    private HttpPost httpPost;
+    private List<NameValuePair> attributes;
 
 
     public PostBuilder() {
         httpClient = HttpClients.createDefault();
         //httpPost = new HttpPost("http://localhost:8080");
         httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
-        attributes = new ArrayList<NameValuePair>();
+        attributes = new ArrayList<>();
     }
 
     public PostBuilder withIdentifier(String identifier) {
@@ -38,19 +45,22 @@ public class PostBuilder {
         return this;
     }
 
-    public String postAndGetResponse() {
-        String responseString = null;
-        try {
-            httpPost.setEntity(new UrlEncodedFormEntity(attributes, "UTF-8"));
-            HttpResponse response = httpClient.execute(httpPost);
-            HttpEntity entity = response.getEntity();
-
-            if (entity != null) {
-                responseString = EntityUtils.toString(entity);
+    public void post() {
+        ExecutorService executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            String responseString = null;
+            try {
+                httpPost.setEntity(new UrlEncodedFormEntity(attributes, "UTF-8"));
+                HttpResponse response = httpClient.execute(httpPost);
+                HttpEntity entity = response.getEntity();
+                if (entity != null) {
+                    responseString = EntityUtils.toString(entity);
+                }
+            } catch (Exception exc) {
+                exc.printStackTrace();
             }
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        }
-        return responseString;
+            NetflixStatistix.getControllerHandler().getLoginController().handleLogin(responseString);
+        });
     }
+
 }

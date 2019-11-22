@@ -25,8 +25,8 @@ public class RegistrationController {
     @FXML
     private TextField date;
 
-    @FXML
-    protected void registration(ActionEvent event) {
+    //@FXML
+    /*protected void registration(ActionEvent event) {
         try {
             User user = new UserBuilder()
                     .withEmail(emailField.getText())
@@ -41,5 +41,7 @@ public class RegistrationController {
             target.setText("Login failed!");
             System.out.println(IIE.getFoundTypes());
         }
-    }
+    }*/
+
+
 }

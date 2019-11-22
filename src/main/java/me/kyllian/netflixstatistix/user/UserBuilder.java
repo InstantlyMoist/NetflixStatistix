@@ -93,7 +93,7 @@ public class UserBuilder {
         return this;
     }
 
-    public User build() throws InputInvalidException {
+    /*public User build() throws InputInvalidException {
         String response = new PostBuilder().withIdentifier("user")
                 .withAttribute("firstname", firstName)
                 .withAttribute("lastname", lastName)
@@ -113,17 +113,6 @@ public class UserBuilder {
         newUser.addWatchingProfile(new WatchingProfile("x", 1l));
         //TODO: Return well constructed watching profile with default recommandations
         return newUser;
-    }
-
-    public User login() throws InputInvalidException {
-        String response = new PostBuilder().withIdentifier("login")
-                .withAttribute("email", email)
-                .withAttribute("password", password)
-                .postAndGetResponse();
-        if (response.equalsIgnoreCase("INVALID_USER")) inputInvalidException.addType(InvalidFieldType.INVALIDUSER);
-        if (response.equalsIgnoreCase("INVALID_PASSWORD")) inputInvalidException.addType(InvalidFieldType.INVALIDPASSWORD);
-        if (!inputInvalidException.getFoundTypes().isEmpty()) throw inputInvalidException;
-        return new User(response);
-    }
+    }*/
 
 }
