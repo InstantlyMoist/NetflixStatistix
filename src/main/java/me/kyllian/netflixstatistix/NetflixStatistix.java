@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import me.kyllian.netflixstatistix.controllers.ControllerHandler;
 import me.kyllian.netflixstatistix.controllers.LoginController;
+import me.kyllian.netflixstatistix.controllers.RegistrationController;
 import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
@@ -95,10 +96,14 @@ public class NetflixStatistix extends Application {
     public void start(Stage stage) throws Exception {
         controllerHandler = new ControllerHandler();
 
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/login.fxml").openStream());
+//        LoginController controller = (LoginController) fxmlLoader.getController();
+//        controllerHandler.setLoginController(controller);
         FXMLLoader fxmlLoader = new FXMLLoader();
-        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/login.fxml").openStream());
-        LoginController controller = (LoginController) fxmlLoader.getController();
-        controllerHandler.setLoginController(controller);
+        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/registration.fxml").openStream());
+        RegistrationController controller = (RegistrationController) fxmlLoader.getController();
+//        controllerHandler.setLoginController(controller)
 
         Scene scene = new Scene(pane, 300, 275);
 

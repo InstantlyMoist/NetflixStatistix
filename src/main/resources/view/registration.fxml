@@ -12,7 +12,7 @@
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" styleClass="root">
 
     <!-- Add Header Label -->
-    <Label text="Registration Form (FXML)" GridPane.columnIndex="0"
+    <Label text="Registration Form" GridPane.columnIndex="0"
            GridPane.rowIndex="0" GridPane.columnSpan="2"
            GridPane.rowSpan="1" GridPane.halignment="CENTER" >
         <font>
@@ -26,20 +26,22 @@
 
 
     <!-- Add Name Label -->
-    <Label text="Full Name : " GridPane.columnIndex="0"
+    <Label text="First Name : " GridPane.columnIndex="0"
            GridPane.rowIndex="1" >
     </Label>
+
+
     <!-- Add Name Text Field -->
     <TextField fx:id="nameField" prefHeight="40"
                GridPane.columnIndex="1" GridPane.rowIndex="1"/>
 
 
-    <!-- Add Email Label -->
-    <Label text="Email ID : " GridPane.columnIndex="0"
+    <!-- Add Lastname Label -->
+    <Label text="Last Name : " GridPane.columnIndex="0"
            GridPane.rowIndex="2" >
     </Label>
-    <!-- Add Email Text Field -->
-    <TextField fx:id="emailField" prefHeight="40"
+    <!-- Add Lastname Text Field -->
+    <TextField fx:id="Lastname" prefHeight="40"
                GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 
 
@@ -52,11 +54,48 @@
     <PasswordField fx:id="passwordField" prefHeight="40"
                    GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
+    <!-- Add Email Label -->
+    <Label text="Email : " GridPane.columnIndex="0"
+           GridPane.rowIndex="4" >
+    </Label>
+    <!-- Add Email Field -->
+    <PasswordField fx:id="Email" prefHeight="40"
+                   GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+    <!-- Add Street Label -->
+    <Label text="Street : " GridPane.columnIndex="0"
+           GridPane.rowIndex="5" >
+    </Label>
+    <!-- Add Street Field -->
+    <PasswordField fx:id="Street" prefHeight="40"
+                   GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+    <!-- Add Housenumber Label -->
+    <Label text="House Number : " GridPane.columnIndex="0"
+           GridPane.rowIndex="6" >
+    </Label>
+    <!-- Add Housenumber Field -->
+    <PasswordField fx:id="Housenumber" prefHeight="40"
+                   GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+    <!-- Add Birthdate Label -->
+    <Label text="Birthdate : " GridPane.columnIndex="0"
+           GridPane.rowIndex="7" >
+    </Label>
+    <!-- Add Housenumber Field -->
+    <PasswordField fx:id="Birthdate" prefHeight="40"
+                   GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+
+
+
+
+
+
 
     <!-- Add Submit Button -->
     <Button fx:id="submitButton" text="Submit"
             prefWidth="100" prefHeight="40" defaultButton="true"
-            GridPane.columnIndex="0" GridPane.rowIndex="4"
+            GridPane.columnIndex="0" GridPane.rowIndex="8"
             GridPane.columnSpan="2" GridPane.rowSpan="1"
             GridPane.halignment="CENTER">
             <!-- moet nog een onAction komen hier -->
@@ -65,6 +104,17 @@
         </GridPane.margin>
     </Button>
 
+
+    <Label text="Registration Form" GridPane.columnIndex="0"
+           GridPane.rowIndex="0" GridPane.columnSpan="2"
+           GridPane.rowSpan="1" GridPane.halignment="CENTER" >
+        <font>
+            <Font name="Arial" size="24" ></Font>
+        </font>
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Label>
 
 
 
