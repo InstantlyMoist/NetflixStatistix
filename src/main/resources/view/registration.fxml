@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="registration.fxml.css"?>
 
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -59,7 +60,7 @@
            GridPane.rowIndex="4" >
     </Label>
     <!-- Add Email Field -->
-    <PasswordField fx:id="Email" prefHeight="40"
+    <TextField fx:id="Email" prefHeight="40"
                    GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
     <!-- Add Street Label -->
@@ -67,7 +68,7 @@
            GridPane.rowIndex="5" >
     </Label>
     <!-- Add Street Field -->
-    <PasswordField fx:id="Street" prefHeight="40"
+    <TextField fx:id="Street" prefHeight="40"
                    GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <!-- Add Housenumber Label -->
@@ -75,7 +76,7 @@
            GridPane.rowIndex="6" >
     </Label>
     <!-- Add Housenumber Field -->
-    <PasswordField fx:id="Housenumber" prefHeight="40"
+    <TextField fx:id="Housenumber" prefHeight="40"
                    GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
     <!-- Add Birthdate Label -->
@@ -83,7 +84,7 @@
            GridPane.rowIndex="7" >
     </Label>
     <!-- Add Housenumber Field -->
-    <PasswordField fx:id="Birthdate" prefHeight="40"
+    <TextField fx:id="Birthdate" prefHeight="40"
                    GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
 
@@ -115,6 +116,7 @@
             <Insets top="20" right="0" bottom="20" left="0"></Insets>
         </GridPane.margin>
     </Label>
+
 
 
 
