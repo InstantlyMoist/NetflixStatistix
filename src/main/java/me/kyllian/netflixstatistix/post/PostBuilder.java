@@ -31,7 +31,8 @@ public class PostBuilder {
     public PostBuilder() {
         httpClient = HttpClients.createDefault();
         //httpPost = new HttpPost("http://localhost:8080");
-        httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
+        //httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
+        httpPost = new HttpPost("https://mealnow-mailhandler.herokuapp.com/");
         attributes = new ArrayList<>();
     }
 
@@ -55,11 +56,12 @@ public class PostBuilder {
                 HttpEntity entity = response.getEntity();
                 if (entity != null) {
                     responseString = EntityUtils.toString(entity);
+                    System.out.println(responseString);
                 }
             } catch (Exception exc) {
                 exc.printStackTrace();
             }
-            NetflixStatistix.getControllerHandler().getLoginController().handleLogin(responseString);
+            //NetflixStatistix.getControllerHandler().getLoginController().handleLogin(responseString);
         });
     }
 

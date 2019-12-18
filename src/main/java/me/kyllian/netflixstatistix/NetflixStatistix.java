@@ -1,17 +1,20 @@
 package me.kyllian.netflixstatistix;
 
-import com.sun.javafx.applet.Splash;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import me.kyllian.netflixstatistix.controllers.*;
+import me.kyllian.netflixstatistix.controllers.ControllerHandler;
+import me.kyllian.netflixstatistix.controllers.HomeController;
+import me.kyllian.netflixstatistix.controllers.LoginController;
+import me.kyllian.netflixstatistix.controllers.RegistrationController;
 import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class NetflixStatistix extends Application {
@@ -95,22 +98,23 @@ public class NetflixStatistix extends Application {
     public void start(Stage stage) throws Exception {
         controllerHandler = new ControllerHandler();
 
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/login.fxml").openStream());
-//        LoginController controller = (LoginController) fxmlLoader.getController();
-//        controllerHandler.setLoginController(controller);
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/Home.fxml").openStream());
-        HomeController controller = (HomeController) fxmlLoader.getController();
-//        controllerHandler.setLoginController(controller)
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
+        root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
+        //Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/registration.fxml").openStream());
+        //LoginController controller = (LoginController) fxmlLoader.getController();
+        //controllerHandler.setLoginController(controller);
+        /*FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/registration.fxml").openStream());
+        RegistrationController controller = (RegistrationController) fxmlLoader.getController();
+//        controllerHandler.setLoginController(controller)*/
 
-        Scene scene = new Scene(pane, 300, 275);
 
+        //Scene scene = new Scene(pane, 300, 275);
 
 
 
         stage.setTitle("NetflixStatistix");
-        stage.setScene(scene);
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
