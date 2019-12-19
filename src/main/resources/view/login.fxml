@@ -5,27 +5,40 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-
+<?import javafx.scene.image.ImageView?>
 <GridPane fx:controller="me.kyllian.netflixstatistix.controllers.LoginController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10" styleClass="root">
-    <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+          xmlns:fx="http://javafx.com/fxml" styleClass="root"
+          prefHeight="500"
+          prefWidth="700"
+          alignment="TOP_CENTER">
+<padding>
+    <Insets top="25" right="25" bottom="10" left="25"/>
+</padding>
+<children>
+    <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+        <ImageView fx:id="logo" fitHeight="190.0" fitWidth="190.0"
+                   preserveRatio="true"></ImageView>
+    </HBox>
+    <VBox minWidth="350" minHeight="90" GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <TextField fx:id="email" promptText="Email" minHeight="41" maxHeight="41">
 
-    <Label text="Welcome to NetflixStatistix" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
+        </TextField>
+        <PasswordField fx:id="password" promptText="Password" minHeight="41" maxHeight="41">
 
-    <TextField fx:id="emailField" promptText="Enter your email" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        </PasswordField>
+    </VBox>
 
-    <PasswordField fx:id="passwordField" promptText="Enter your password" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0">
+        <Button fx:id="loginButton" onMouseClicked="#login" minWidth="350" minHeight="41">
+            <text>Sign In</text>
 
-    <HBox spacing="10" alignment="center"
-          GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button text="Sign In"
-                onAction="#login"/>
+        </Button>
     </HBox>
 
-    <Label fx:id="target"
-          GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-
-
-
+    <HBox alignment="CENTER" GridPane.rowIndex="3" GridPane.columnIndex="0">
+        <Label fx:id="registerText" onMouseClicked="#toRegister">
+            <text>Nog geen account? Klik hier om te registreren</text>
+        </Label>
+    </HBox>
+</children>
 </GridPane>

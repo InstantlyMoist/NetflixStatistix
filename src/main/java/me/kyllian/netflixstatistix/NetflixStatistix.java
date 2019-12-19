@@ -100,28 +100,11 @@ public class NetflixStatistix extends Application {
     public void start(Stage stage) throws Exception {
         controllerHandler = new ControllerHandler();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/home.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
         stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
-        root.getStylesheets().add(getClass().getResource("/css/home.css").toExternalForm());
-        //Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/registration.fxml").openStream());
-        //LoginController controller = (LoginController) fxmlLoader.getController();
-        //controllerHandler.setLoginController(controller);
-        /*FXMLLoader fxmlLoader = new FXMLLoader();
-        Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/registration.fxml").openStream());
-        RegistrationController controller = (RegistrationController) fxmlLoader.getController();
-//        controllerHandler.setLoginController(controller)*/
-
-
-        //Scene scene = new Scene(pane, 300, 275);
-
-
-        stage.initStyle(StageStyle.UTILITY);
-        stage.setTitle("NetflixStatistix");
+        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+        stage.setTitle("NetflixStatistix - Login");
         stage.setScene(new Scene(root));
         stage.show();
-    }
-
-    public static ControllerHandler getControllerHandler() {
-        return controllerHandler;
     }
 }

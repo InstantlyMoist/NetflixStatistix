@@ -1,29 +1,35 @@
 package me.kyllian.netflixstatistix.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
 
-public class RegistrationController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class RegistrationController implements Initializable {
 
     @FXML
-    private Label target;
+    private Button backButton;
+
     @FXML
-    private PasswordField passwordField;
-    @FXML
-    private TextField emailField;
-    @FXML
-    private TextField firstName;
-    @FXML
-    private TextField lastname;
-    @FXML
-    private TextField adress;
-    @FXML
-    private TextField date;
+    private ImageView logo;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
+    }
 
     //@FXML
     /*protected void registration(ActionEvent event) {
@@ -42,6 +48,17 @@ public class RegistrationController {
             System.out.println(IIE.getFoundTypes());
         }
     }*/
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+            root.getStylesheets().removeAll();
+            root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+            backButton.getScene().setRoot(root);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
 
 
 }

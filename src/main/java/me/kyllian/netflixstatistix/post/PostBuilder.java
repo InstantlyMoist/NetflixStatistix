@@ -46,7 +46,7 @@ public class PostBuilder {
         return this;
     }
 
-    public void post(HomeController controller) {
+    public void post(LoginController controller) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
             String responseString = null;
