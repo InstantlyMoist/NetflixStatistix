@@ -1,0 +1,38 @@
+.root {
+    -fx-background-color: #171717;
+}
+
+.menu .label{
+    -fx-background-color: #ff0000;
+    -fx-text-fill: green;
+}
+
+.label {
+    -fx-text-fill: WHITE;
+}
+
+#email {
+    -fx-background-color: #2F2F2F;
+    -fx-background-insets: 1px;
+    -fx-prompt-text-fill: #717171;
+    -fx-text-inner-color: #717171;
+}
+
+#password {
+    -fx-background-color: #2F2F2F;
+    -fx-background-insets: 1px;
+    -fx-prompt-text-fill: #717171;
+    -fx-text-inner-color: #717171;
+
+}
+
+#registerText {
+    -fx-text-fill: #717171;
+}
+
+#loginButton {
+    -fx-background-color: #171717;
+    -fx-border-color: #717171;
+    -fx-border-radius: 5;
+    -fx-text-fill: #717171;
+}

@@ -29,31 +29,5 @@ public class LoginController {
         if (loggingIn) return;
         target.setText("Logging in...");
         loggingIn = true;
-        new PostBuilder().withIdentifier("login")
-                .withAttribute("email", emailField.getText())
-                .withAttribute("password", PasswordEncryptor.encrypt(passwordField.getText()))
-                .post();
-    }
-
-    public void handleLogin(String response) {
-        Platform.runLater(new Runnable(){
-            @Override
-            public void run() {
-                loggingIn = false;
-                System.out.println(response);
-                if (response.equalsIgnoreCase("INVALID_USER")) {
-                    target.setText("Invalid user");
-                    return;
-                }
-                if (response.equalsIgnoreCase("INVALID_PASSWORD")) {
-                    target.setText("Invalid password");
-                    return;
-                }
-                User user = new User(response);
-                target.setText("Login successful");
-                //TODO: GOTO NEXT SCREEN, SAVE USER OBJECT?
-            }
-        });
-
     }
 }

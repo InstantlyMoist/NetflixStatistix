@@ -4,8 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import me.kyllian.netflixstatistix.controllers.ControllerHandler;
 import me.kyllian.netflixstatistix.controllers.HomeController;
 import me.kyllian.netflixstatistix.controllers.LoginController;
@@ -98,8 +100,9 @@ public class NetflixStatistix extends Application {
     public void start(Stage stage) throws Exception {
         controllerHandler = new ControllerHandler();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
-        root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/home.fxml"));
+        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
+        root.getStylesheets().add(getClass().getResource("/css/home.css").toExternalForm());
         //Pane pane = fxmlLoader.load(getClass().getClassLoader().getResource("view/registration.fxml").openStream());
         //LoginController controller = (LoginController) fxmlLoader.getController();
         //controllerHandler.setLoginController(controller);
@@ -112,7 +115,7 @@ public class NetflixStatistix extends Application {
         //Scene scene = new Scene(pane, 300, 275);
 
 
-
+        stage.initStyle(StageStyle.UTILITY);
         stage.setTitle("NetflixStatistix");
         stage.setScene(new Scene(root));
         stage.show();

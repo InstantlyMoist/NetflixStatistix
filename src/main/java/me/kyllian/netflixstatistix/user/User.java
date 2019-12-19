@@ -42,7 +42,6 @@ public class User {
         } catch (JSONException exception) {
             System.out.println(jsonData);
         }
-        System.out.println(this.toString());
 
         //TODO: Add database connection to fetch watching data.
     }
