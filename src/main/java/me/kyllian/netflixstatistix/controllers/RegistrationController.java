@@ -15,6 +15,7 @@ import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
 
+import javax.xml.soap.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,28 +31,28 @@ public class RegistrationController implements Initializable {
     private TextField nameField;
 
     @FXML
-    private TextField birth;
+    private TextField birthField;
 
     @FXML
-    private TextField repeatPassword;
+    private TextField repeatPasswordField;
 
     @FXML
-    private TextField street;
+    private TextField streetField;
 
     @FXML
-    private TextField number;
+    private TextField numberField;
 
     @FXML
-    private String postalCode;
+    private TextField postalcodeField;
 
     @FXML
-    private String residence;
+    private TextField residenceField;
 
     @FXML
-    private TextField email;
+    private TextField emailField;
 
     @FXML
-    private PasswordField password;
+    private PasswordField passwordField;
 
     @FXML
     private Label registerText;
