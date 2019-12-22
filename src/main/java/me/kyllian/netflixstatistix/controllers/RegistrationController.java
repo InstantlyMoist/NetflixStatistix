@@ -19,6 +19,7 @@ import javax.xml.soap.Text;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 public class RegistrationController implements Initializable {
 
@@ -73,13 +74,15 @@ public class RegistrationController implements Initializable {
 
     public void register(){
         //input validatie(geeft rood cringeltje als fout is)
-        if (nameField.getText().contains(" ")){
-            nameField.setStyle("-fx-border-color: red");
-        }else{
+        if (Pattern.matches("[A-Z]([a-z]+|\\s[a-z]+)", nameField.getText())){
             nameField.setStyle("-fx-border-color: green");
+        }else{
+            nameField.setStyle("-fx-border-color: red");
         }
 
     }
+
+
 
 
 
