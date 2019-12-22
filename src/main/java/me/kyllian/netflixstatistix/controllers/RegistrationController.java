@@ -114,6 +114,11 @@ public class RegistrationController implements Initializable {
         }
 
         //postalcode
+        if (Pattern.matches("^\\d{4}\\s?\\w{2}$", postalcodeField.getText())){
+            postalcodeField.setStyle("-fx-border-color: green");
+        }else{
+            postalcodeField.setStyle("-fx-border-color: red");
+        }
 
         //residence
 
