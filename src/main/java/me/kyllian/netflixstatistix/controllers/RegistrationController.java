@@ -73,12 +73,41 @@ public class RegistrationController implements Initializable {
     }
 
     public void register(){
-        //input validatie(geeft rood cringeltje als fout is)
+        //controleert input, geeft rode kleur aan als input fout is en groene kleur als input goed is
+
+        //name validatie
         if (Pattern.matches("[A-Z]([a-z]+|\\s[a-z]+)", nameField.getText())){
             nameField.setStyle("-fx-border-color: green");
         }else{
             nameField.setStyle("-fx-border-color: red");
         }
+
+        //birthday validatie
+        if (Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthField.getText())){
+            birthField.setStyle("-fx-border-color: green");
+        }else{
+            birthField.setStyle("-fx-border-color: red");
+        }
+
+        //password
+
+
+        //password repeat
+        if (passwordField.getText().equals(repeatPasswordField.getText())){
+            repeatPasswordField.setStyle("-fx-border-color: green");
+        }else{
+            repeatPasswordField.setStyle("-fx-border-color: red");
+        }
+
+        //street name
+
+
+        //number
+
+        //postalcode
+
+        //residence
+
 
     }
 
