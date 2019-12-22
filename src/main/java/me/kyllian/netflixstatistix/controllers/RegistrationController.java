@@ -103,6 +103,11 @@ public class RegistrationController implements Initializable {
 
 
         //number
+        if (Pattern.matches("[0-9]+", numberField.getText())){
+            numberField.setStyle("-fx-border-color: green");
+        }else{
+            numberField.setStyle("-fx-border-color: red");
+        }
 
         //postalcode
 
