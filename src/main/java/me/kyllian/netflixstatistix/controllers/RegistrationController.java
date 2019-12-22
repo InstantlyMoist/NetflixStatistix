@@ -27,7 +27,7 @@ public class RegistrationController implements Initializable {
     private ImageView logo;
 
     @FXML
-    private TextField name;
+    private TextField nameField;
 
     @FXML
     private TextField birth;
@@ -72,12 +72,11 @@ public class RegistrationController implements Initializable {
 
     public void register(){
         //input validatie(geeft rood cringeltje als fout is)
-//        if (accountNameField.getText().length() <= 32 && accountNameField.getText().length() > 0) {
-//            accountName = accountNameField.getText();
-//            accountNameField.setStyle("-fx-border-color: green");
-//        } else {
-//            accountNameField.setStyle("-fx-border-color: red");
-//        }
+        if (nameField.getText().contains(" ")){
+            nameField.setStyle("-fx-border-color: red");
+        }else{
+            nameField.setStyle("-fx-border-color: green");
+        }
 
     }
 
