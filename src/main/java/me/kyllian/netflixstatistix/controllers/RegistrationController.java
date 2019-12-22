@@ -74,32 +74,38 @@ public class RegistrationController implements Initializable {
 
     public void register(){
         //controleert input, geeft rode kleur aan als input fout is en groene kleur als input goed is
+        // er is aangegeven wat verwacht woord in de comments.
 
-        //name validatie
+        //name validatie Voornaam + Achternaam
         if (Pattern.matches("(\\b[A-Z]{1}[a-z]+)( )([A-Z]{1}[a-z]+\\b)", nameField.getText())){
             nameField.setStyle("-fx-border-color: green");
         }else{
             nameField.setStyle("-fx-border-color: red");
         }
 
-        //birthday validatie
+        //birthday validatie 00-00-0000
         if (Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthField.getText())){
             birthField.setStyle("-fx-border-color: green");
         }else{
             birthField.setStyle("-fx-border-color: red");
         }
 
-        //password
+        //password meer dan 7 characters
+        if (Pattern.matches("/[0-9a-zA-Z]{7,}/", passwordField.getText())){
+            passwordField.setStyle("-fx-border-color: green");
+        }else{
+            passwordField.setStyle("-fx-border-color: red");
+        }
 
 
-        //password repeat
+        //password repeat password, hetzelfde als repeatpassword
         if (passwordField.getText().equals(repeatPasswordField.getText())){
             repeatPasswordField.setStyle("-fx-border-color: green");
         }else{
             repeatPasswordField.setStyle("-fx-border-color: red");
         }
 
-        //street name
+        //street name, Straatnaam
         if (Pattern.matches("^[A-Z].*", streetField.getText())){
             streetField.setStyle("-fx-border-color: green");
         }else{
@@ -113,14 +119,14 @@ public class RegistrationController implements Initializable {
             numberField.setStyle("-fx-border-color: red");
         }
 
-        //postalcode
+        //postalcode, 0000AA
         if (Pattern.matches("^\\d{4}\\s?\\w{2}$", postalcodeField.getText())){
             postalcodeField.setStyle("-fx-border-color: green");
         }else{
             postalcodeField.setStyle("-fx-border-color: red");
         }
 
-        //residence
+        //residence, Residence
         if (Pattern.matches("^[A-Z].*", residenceField.getText())){
             residenceField.setStyle("-fx-border-color: green");
         }else{
