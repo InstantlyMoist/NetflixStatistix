@@ -121,7 +121,11 @@ public class RegistrationController implements Initializable {
         }
 
         //residence
-
+        if (Pattern.matches("^[A-Z].*", residenceField.getText())){
+            residenceField.setStyle("-fx-border-color: green");
+        }else{
+            residenceField.setStyle("-fx-border-color: green");
+        }
 
     }
 
