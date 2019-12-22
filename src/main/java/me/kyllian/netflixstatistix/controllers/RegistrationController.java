@@ -76,7 +76,7 @@ public class RegistrationController implements Initializable {
         //controleert input, geeft rode kleur aan als input fout is en groene kleur als input goed is
 
         //name validatie
-        if (Pattern.matches("[A-Z]([a-z]+|\\s[a-z]+)", nameField.getText())){
+        if (Pattern.matches("(\\b[A-Z]{1}[a-z]+)( )([A-Z]{1}[a-z]+\\b)", nameField.getText())){
             nameField.setStyle("-fx-border-color: green");
         }else{
             nameField.setStyle("-fx-border-color: red");
@@ -100,7 +100,7 @@ public class RegistrationController implements Initializable {
         }
 
         //street name
-        if (Pattern.matches("[a-z]+", streetField.getText())){
+        if (Pattern.matches("^[A-Z].*", streetField.getText())){
             streetField.setStyle("-fx-border-color: green");
         }else{
             streetField.setStyle("-fx-border-color: red");
