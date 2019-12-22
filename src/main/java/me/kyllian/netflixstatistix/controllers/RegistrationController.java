@@ -31,6 +31,8 @@ public class RegistrationController implements Initializable {
         logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
     }
 
+
+
     //@FXML
     /*protected void registration(ActionEvent event) {
         try {
