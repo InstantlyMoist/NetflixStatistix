@@ -91,7 +91,7 @@ public class RegistrationController implements Initializable {
         }
 
         //password meer dan 7 characters
-        if (Pattern.matches("/[0-9a-zA-Z]{7,}/", passwordField.getText())){
+        if (passwordField.getLength() > 7){
             passwordField.setStyle("-fx-border-color: green");
         }else{
             passwordField.setStyle("-fx-border-color: red");
@@ -131,6 +131,13 @@ public class RegistrationController implements Initializable {
             residenceField.setStyle("-fx-border-color: green");
         }else{
             residenceField.setStyle("-fx-border-color: green");
+        }
+
+        //email
+        if (Pattern.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", emailField.getText())){
+           emailField.setStyle("-fx-border-color: green");
+        }else{
+            emailField.setStyle("-fx-border-color: red");
         }
 
     }
