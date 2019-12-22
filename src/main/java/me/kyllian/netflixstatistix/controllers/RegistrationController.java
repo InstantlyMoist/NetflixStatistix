@@ -100,7 +100,11 @@ public class RegistrationController implements Initializable {
         }
 
         //street name
-
+        if (Pattern.matches("[a-z]+", streetField.getText())){
+            streetField.setStyle("-fx-border-color: green");
+        }else{
+            streetField.setStyle("-fx-border-color: red");
+        }
 
         //number
         if (Pattern.matches("[0-9]+", numberField.getText())){
