@@ -80,11 +80,7 @@ public class RegistrationController implements Initializable {
         nameField.setStyle(Pattern.matches("(\\b[A-Z]{1}[a-z]+)( )([A-Z]{1}[a-z]+\\b)", nameField.getText()) ? "-fx-border-color : green" : "-fx-border-color: red");
 
         //birthday validatie 00-00-0000
-        if (Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthField.getText())){
-            birthField.setStyle("-fx-border-color: green");
-        }else{
-            birthField.setStyle("-fx-border-color: red");
-        }
+        birthField.setStyle(Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthField.getText()) ?"-fx-border-color : green" : "-fx-border-color: red");
 
         //password meer dan 7 characters
         if (passwordField.getLength() > 7){
