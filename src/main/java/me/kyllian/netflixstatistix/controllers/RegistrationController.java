@@ -107,18 +107,10 @@ public class RegistrationController implements Initializable {
         postalcodeField.setStyle(Pattern.matches("^\\d{4}\\s?\\w{2}$+", postalcodeField.getText()) ?"-fx-border-color : green" : "-fx-border-color: red");
 
         //residence, Residence
-        if (Pattern.matches("^[A-Z].*", residenceField.getText())){
-            residenceField.setStyle("-fx-border-color: green");
-        }else{
-            residenceField.setStyle("-fx-border-color: green");
-        }
+        residenceField.setStyle(Pattern.matches("^[A-Z].*", residenceField.getText()) ?"-fx-border-color : green" : "-fx-border-color: red");
 
         //email
-        if (Pattern.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", emailField.getText())){
-           emailField.setStyle("-fx-border-color: green");
-        }else{
-            emailField.setStyle("-fx-border-color: red");
-        }
+        emailField.setStyle(Pattern.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", emailField.getText()) ?"-fx-border-color : green" : "-fx-border-color: red");
 
     }
 
