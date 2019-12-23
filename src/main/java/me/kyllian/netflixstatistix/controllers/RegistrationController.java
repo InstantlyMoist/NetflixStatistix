@@ -77,11 +77,7 @@ public class RegistrationController implements Initializable {
         // er is aangegeven wat verwacht woord in de comments.
 
         //name validatie Voornaam + Achternaam
-        if (Pattern.matches("(\\b[A-Z]{1}[a-z]+)( )([A-Z]{1}[a-z]+\\b)", nameField.getText())){
-            nameField.setStyle("-fx-border-color: green");
-        }else{
-            nameField.setStyle("-fx-border-color: red");
-        }
+        nameField.setStyle(Pattern.matches("(\\b[A-Z]{1}[a-z]+)( )([A-Z]{1}[a-z]+\\b)", nameField.getText()) ? "-fx-border-color : green" : "-fx-border-color: red");
 
         //birthday validatie 00-00-0000
         if (Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthField.getText())){
