@@ -4,6 +4,10 @@
 
 .label {
     -fx-text-fill: White;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
 }
 
 .button {

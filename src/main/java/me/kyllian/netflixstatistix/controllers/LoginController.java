@@ -65,12 +65,24 @@ public class LoginController implements Initializable {
                 .post(this);
         //TODO Actually log in
     }
-
+/*
     public void toRegister() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
             root.getStylesheets().removeAll();
             root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
+            loginButton.getScene().setRoot(root);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
+*/
+
+    public void toRegister() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            root.getStylesheets().removeAll();
+            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
             loginButton.getScene().setRoot(root);
         } catch (IOException exception) {
             exception.printStackTrace();

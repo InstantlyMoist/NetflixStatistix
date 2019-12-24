@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
-public class profileController implements Initializable{
+public class ProfileController implements Initializable{
 
     @FXML
     private ImageView logo;
@@ -30,11 +30,31 @@ public class profileController implements Initializable{
     private Label profileText;
 
     @FXML
+    private ImageView profilePicture1;
+
+    @FXML
+    private ImageView profilePicture2;
+
+    @FXML
+    private ImageView profilePicture3;
+
+    @FXML
+    private ImageView profilePicture4;
+
+    @FXML
+    private ImageView profilePicture5;
+
+    @FXML
     private Button manageButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
+        profilePicture1.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+        profilePicture2.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+        profilePicture3.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+        profilePicture4.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+        profilePicture5.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
     }
 
     public void profile(){
