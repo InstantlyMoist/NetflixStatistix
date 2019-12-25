@@ -72,7 +72,7 @@ public class RegistrationController implements Initializable {
         logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
     }
 
-    public void register(){
+    public void registerValidation(){
         //controleert input, geeft rode kleur aan als input fout is en groene kleur als input goed is
         // er is aangegeven wat verwacht woord in de comments.
 
