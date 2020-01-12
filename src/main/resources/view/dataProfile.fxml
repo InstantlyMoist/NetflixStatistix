@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Text?>
 
 <GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.DataProfileController">
 
@@ -16,24 +15,31 @@
         <Insets bottom="10" left="25" right="25" top="25" />
     </padding>
 
-    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-110" translateY="-110" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-110" translateY="-110" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
 
-    <ImageView fx:id="profilePicture1" fitHeight="100" fitWidth="100" GridPane.rowIndex="4" />
-    <ImageView fx:id="profilePicture2" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <ImageView fx:id="profilePicture3" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-    <ImageView fx:id="profilePicture4" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-    <ImageView fx:id="profilePicture5" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-
-    <Button fx:id="manageButton" maxWidth="300" text="Back to profilescreen" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+    <Button fx:id="manageButton" maxWidth="300" prefHeight="26.0" prefWidth="298.0" text="Back to profilescreen" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
         <GridPane.margin>
             <Insets top="30" />
         </GridPane.margin>
     </Button>
-   <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="100.0" text="Bekeken programmas" GridPane.rowIndex="2" />
-   <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" text="reccomendations serie" GridPane.rowIndex="4" />
-   <TextField prefHeight="99.0" prefWidth="149.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-   <TextField prefHeight="101.0" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Programs watched" wrappingWidth="151.73675918579102" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="reccomendation" wrappingWidth="150.93670272827148" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="167.0" text="Bekeken programmas" />
+   <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="167.0" text="recommendation" GridPane.rowIndex="2" />
+   <TextField prefHeight="99.0" prefWidth="149.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+   <TextField prefHeight="102.0" prefWidth="298.0" GridPane.columnIndex="3" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>

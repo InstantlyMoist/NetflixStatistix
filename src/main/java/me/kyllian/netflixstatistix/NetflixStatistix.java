@@ -100,9 +100,13 @@ public class NetflixStatistix extends Application {
     public void start(Stage stage) throws Exception {
         controllerHandler = new ControllerHandler();
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+//        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
+//        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+//        stage.setTitle("NetflixStatistix - Login");
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/dataProfile.fxml"));
         stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
-        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/css/dataProfile.css").toExternalForm());
         stage.setTitle("NetflixStatistix - Login");
         stage.setScene(new Scene(root));
         stage.show();
