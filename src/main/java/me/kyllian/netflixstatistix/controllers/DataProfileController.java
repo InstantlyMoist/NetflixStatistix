@@ -26,6 +26,8 @@ public class DataProfileController implements Initializable{
     @FXML
     private ImageView logo;
 
+    @FXML
+    private
 
 
 
