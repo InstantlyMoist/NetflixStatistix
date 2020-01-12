@@ -19,9 +19,9 @@
         <Insets bottom="10" left="25" right="25" top="25" />
     </padding>
 
-    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" GridPane.halignment="LEFT" GridPane.valignment="TOP" preserveRatio="true" translateX="-110" translateY="-200"/>
+    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" GridPane.halignment="LEFT" GridPane.valignment="TOP" preserveRatio="true" translateX="-110" translateY="-110"/>
 
-        <Label fx:id="profileText" text="Who's Watching" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+        <Label fx:id="profileMainText" text="Who's Watching" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="CENTER"/>
 
             <ImageView fx:id="profilePicture1" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
             <ImageView fx:id="profilePicture2" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
@@ -29,6 +29,15 @@
             <ImageView fx:id="profilePicture4" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
             <ImageView fx:id="profilePicture5" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
 
-        <Button fx:id="manageButton" text="Manage profiles" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER" maxWidth="300">
+    <Label fx:id="profile1Text" text="Name 1" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile2Text" text="Name 2" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile3Text" text="Name 3" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile4Text" text="Name 4" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile5Text" text="Name 5" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+
+        <Button fx:id="manageButton" text="Manage profiles" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.halignment="CENTER" maxWidth="300">
+            <GridPane.margin>
+                <Insets top="30"/>
+            </GridPane.margin>
         </Button>
 </GridPane>

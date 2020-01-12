@@ -27,7 +27,22 @@ public class ProfileController implements Initializable{
     private ImageView logo;
 
     @FXML
-    private Label profileText;
+    private Label profileMainText;
+
+    @FXML
+    private Label profile1Text;
+
+    @FXML
+    private Label profile2Text;
+
+    @FXML
+    private Label profile3Text;
+
+    @FXML
+    private Label profile4Text;
+
+    @FXML
+    private Label profile5Text;
 
     @FXML
     private ImageView profilePicture1;
