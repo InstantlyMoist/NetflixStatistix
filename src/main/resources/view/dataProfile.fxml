@@ -3,6 +3,7 @@
 <?xml-stylesheet type="text/css" href="resources/css/dataProfile.css"?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -22,10 +23,10 @@
             <Insets top="30" />
         </GridPane.margin>
     </Button>
-   <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="167.0" text="Bekeken programmas" />
-   <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="167.0" text="recommendation" GridPane.rowIndex="2" />
-   <TextField prefHeight="99.0" prefWidth="149.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-   <TextField prefHeight="102.0" prefWidth="298.0" GridPane.columnIndex="3" />
+   <TextField fx:id="reccomendationTextField" prefHeight="99.0" prefWidth="149.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+   <TextField fx:id="bekekenTextField" prefHeight="102.0" prefWidth="298.0" GridPane.columnIndex="3" />
+   <Label fx:id="bekekenLabel" prefHeight="102.0" prefWidth="135.0" text="Bekeken" />
+   <Label fx:id="reccomendationLabel" prefHeight="98.0" prefWidth="134.0" text="Reccomendation" GridPane.rowIndex="2" />
 
 
 </GridPane>

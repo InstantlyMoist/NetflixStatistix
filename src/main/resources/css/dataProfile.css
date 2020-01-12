@@ -2,3 +2,6 @@
     -fx-background-color: #171717;
 }
 
+.label{
+    -fx-text-fill: WHITE;
+}

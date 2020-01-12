@@ -27,7 +27,10 @@ public class DataProfileController implements Initializable{
     private ImageView logo;
 
     @FXML
-    private
+    private TextField recommendationTextField;
+
+    @FXML
+    private TextField bekekenTextField;
 
 
 
