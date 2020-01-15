@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
@@ -27,13 +24,10 @@ public class DataProfileController implements Initializable{
     private ImageView logo;
 
     @FXML
-    private TextField recommendationTextField;
+    private TableView table;
 
     @FXML
-    private TextField bekekenTextField;
-
-
-
+    private Label title;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

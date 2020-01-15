@@ -9,24 +9,53 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 
 <GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.DataProfileController">
 
     <padding>
-        <Insets bottom="10" left="25" right="25" top="25" />
+        <Insets bottom="25" left="25" right="25" top="25" />
     </padding>
 
-    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-110" translateY="-110" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
 
-    <Button fx:id="manageButton" maxWidth="300" prefHeight="26.0" prefWidth="298.0" text="Back to profilescreen" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+    <Label fx:id="title" text="Profile data" GridPane.columnSpan="5" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+    <TableView fx:id="table" GridPane.columnSpan="4" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.halignment="CENTER">
+        <columns>
+            <TableColumn text="Name" prefWidth="100">
+            </TableColumn>
+            <TableColumn text="Street" prefWidth="100">
+            </TableColumn>
+            <TableColumn text="Residence" prefWidth="100">
+            </TableColumn>
+            <TableColumn text="City" prefWidth="100">
+            </TableColumn>
+        </columns>
+    </TableView>
+
+    <Button fx:id="addButton" translateX="15" maxWidth="80" prefHeight="26.0" prefWidth="80" text="add" GridPane.columnIndex="0" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
         <GridPane.margin>
-            <Insets top="30" />
+            <Insets top="30"/>
         </GridPane.margin>
     </Button>
-   <TextField fx:id="reccomendationTextField" prefHeight="99.0" prefWidth="149.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-   <TextField fx:id="bekekenTextField" prefHeight="102.0" prefWidth="298.0" GridPane.columnIndex="3" />
-   <Label fx:id="bekekenLabel" prefHeight="102.0" prefWidth="135.0" text="Bekeken" />
-   <Label fx:id="reccomendationLabel" prefHeight="98.0" prefWidth="134.0" text="Reccomendation" GridPane.rowIndex="2" />
 
+    <Button fx:id="editButton" translateX="15" maxWidth="80" prefHeight="26.0" prefWidth="80" text="edit" GridPane.columnIndex="1" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+        <GridPane.margin>
+            <Insets top="30"/>
+        </GridPane.margin>
+    </Button>
 
+    <Button fx:id="deleteButton" translateX="15" maxWidth="80" prefHeight="26.0" prefWidth="80" text="delete" GridPane.columnIndex="2" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+        <GridPane.margin>
+            <Insets top="30" left="10"/>
+        </GridPane.margin>
+    </Button>
+
+    <Button fx:id="loadButton" translateX="15" maxWidth="80" prefHeight="26.0" prefWidth="80" text="load" GridPane.columnIndex="3" GridPane.columnSpan="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+        <GridPane.margin>
+            <Insets top="30" left="-30"/>
+        </GridPane.margin>
+    </Button>
 </GridPane>
