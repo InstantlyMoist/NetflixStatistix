@@ -40,7 +40,7 @@
     <Button fx:id="submitButton" text="Create account"
             prefWidth="170" prefHeight="50"
             GridPane.columnIndex="1" GridPane.rowIndex="10"
-            GridPane.halignment="CENTER" onAction="#register">
+            GridPane.halignment="CENTER" onAction="#registerValidation">
         <GridPane.margin>
             <Insets top="10"/>
         </GridPane.margin>

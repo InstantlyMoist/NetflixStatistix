@@ -80,9 +80,9 @@ public class LoginController implements Initializable {
 
     public void toRegister() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
             root.getStylesheets().removeAll();
-            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
             loginButton.getScene().setRoot(root);
         } catch (IOException exception) {
             exception.printStackTrace();
@@ -104,7 +104,14 @@ public class LoginController implements Initializable {
                 }
                 User user = new User(response);
                 loginButton.setText("Login successful");
-                //TODO: GOTO NEXT SCREEN, SAVE USER OBJECT?
+                try {
+                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+                    root.getStylesheets().removeAll();
+                    root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+                    loginButton.getScene().setRoot(root);
+                } catch (IOException exception) {
+                    exception.printStackTrace();
+                }
             }
         });
 

@@ -104,9 +104,9 @@ public class NetflixStatistix extends Application {
 //        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
 //        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
 //        stage.setTitle("NetflixStatistix - Login");
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/dataProfile.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
         stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
-        root.getStylesheets().add(getClass().getResource("/css/dataProfile.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
         stage.setTitle("NetflixStatistix - Login");
         stage.setScene(new Scene(root));
         stage.show();
