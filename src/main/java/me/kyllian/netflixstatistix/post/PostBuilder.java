@@ -3,6 +3,7 @@ package me.kyllian.netflixstatistix.post;
 
 
 import me.kyllian.netflixstatistix.NetflixStatistix;
+import me.kyllian.netflixstatistix.controllers.Controller;
 import me.kyllian.netflixstatistix.controllers.HomeController;
 import me.kyllian.netflixstatistix.controllers.LoginController;
 import org.apache.http.HttpEntity;
@@ -31,8 +32,8 @@ public class PostBuilder {
 
     public PostBuilder() {
         httpClient = HttpClients.createDefault();
-        //httpPost = new HttpPost("http://localhost:8080");
-        httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
+        httpPost = new HttpPost("http://localhost:8080");
+        //httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
         attributes = new ArrayList<>();
     }
 
@@ -46,7 +47,7 @@ public class PostBuilder {
         return this;
     }
 
-    public void post(LoginController controller) {
+    public void post(Controller controller) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
             String responseString = null;
@@ -60,7 +61,7 @@ public class PostBuilder {
             } catch (Exception exc) {
                 exc.printStackTrace();
             }
-            controller.handleLogin(responseString);
+            controller.handleResponse(responseString);
             //NetflixStatistix.getControllerHandler().getLoginController().handleLogin(responseString);
         });
     }

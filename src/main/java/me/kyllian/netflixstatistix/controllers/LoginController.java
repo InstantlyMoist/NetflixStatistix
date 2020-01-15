@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginController implements Initializable {
+public class LoginController extends Controller implements Initializable {
 
     private boolean loggingIn;
 
@@ -63,20 +63,7 @@ public class LoginController implements Initializable {
                 .withAttribute("email", email.getText())
                 .withAttribute("password", PasswordEncryptor.encrypt(password.getText()))
                 .post(this);
-        //TODO Actually log in
     }
-/*
-    public void toRegister() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
-            root.getStylesheets().removeAll();
-            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
-            loginButton.getScene().setRoot(root);
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-    }
-*/
 
     public void toRegister() {
         try {
@@ -89,7 +76,9 @@ public class LoginController implements Initializable {
         }
     }
 
-    public void handleLogin(String response) {
+
+    @Override
+    public void handleResponse(String response) {
         Platform.runLater(new Runnable(){
             @Override
             public void run() {
@@ -102,7 +91,6 @@ public class LoginController implements Initializable {
                     loginButton.setText("Invalid password");
                     return;
                 }
-                User user = new User(response);
                 loginButton.setText("Login successful");
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
@@ -114,6 +102,5 @@ public class LoginController implements Initializable {
                 }
             }
         });
-
     }
 }

@@ -70,6 +70,7 @@ public class ProfileController implements Initializable{
         profilePicture3.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
         profilePicture4.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
         profilePicture5.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+        //get data
     }
 
     public void profile(){
