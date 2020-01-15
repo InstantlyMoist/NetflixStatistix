@@ -23,6 +23,8 @@ import me.kyllian.netflixstatistix.post.PasswordEncryptor;
 import me.kyllian.netflixstatistix.post.PostBuilder;
 import me.kyllian.netflixstatistix.user.User;
 import me.kyllian.netflixstatistix.user.UserBuilder;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
@@ -79,7 +81,7 @@ public class LoginController extends Controller implements Initializable {
 
     @Override
     public void handleResponse(String response) {
-        Platform.runLater(new Runnable(){
+        Platform.runLater(new Runnable() {
             @Override
             public void run() {
                 loggingIn = false;
@@ -92,6 +94,13 @@ public class LoginController extends Controller implements Initializable {
                     return;
                 }
                 loginButton.setText("Login successful");
+                try {
+                    JSONObject object = new JSONObject(response.replace("[", "").replace("]", ""));
+                    NetflixStatistix.getSessionData().setUserID(object.getInt("user_id"));
+                } catch (JSONException exception) {
+                    System.out.println("Error reading JSON from server");
+                    exception.printStackTrace();
+                }
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
                     root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());

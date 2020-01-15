@@ -167,6 +167,8 @@ public class RegistrationController extends Controller implements Initializable 
                     return;
                 }
                 submitButton.setText("Register succes!");
+                String userID = response.split(" ")[0];
+                NetflixStatistix.getSessionData().setUserID(Integer.parseInt(userID));
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
                     root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
