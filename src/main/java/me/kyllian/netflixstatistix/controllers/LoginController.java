@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import me.kyllian.netflixstatistix.NetflixStatistix;
 import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.exceptions.InvalidFieldType;
 import me.kyllian.netflixstatistix.post.PasswordEncryptor;
@@ -68,11 +69,10 @@ public class LoginController extends Controller implements Initializable {
     public void toRegister() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
-            root.getStylesheets().removeAll();
             root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
-            loginButton.getScene().setRoot(root);
-        } catch (IOException exception) {
-            exception.printStackTrace();
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
         }
     }
 
@@ -94,11 +94,10 @@ public class LoginController extends Controller implements Initializable {
                 loginButton.setText("Login successful");
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-                    root.getStylesheets().removeAll();
                     root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
-                    loginButton.getScene().setRoot(root);
-                } catch (IOException exception) {
-                    exception.printStackTrace();
+                    NetflixStatistix.parentWindow.getScene().setRoot(root);
+                } catch (Exception exc) {
+                    exc.printStackTrace();
                 }
             }
         });
