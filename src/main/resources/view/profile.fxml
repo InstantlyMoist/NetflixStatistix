@@ -29,11 +29,11 @@
             <ImageView fx:id="profilePicture4" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
             <ImageView fx:id="profilePicture5" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
 
-    <Label fx:id="profile1Text" text="Name 1" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile2Text" text="Name 2" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile3Text" text="Name 3" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile4Text" text="Name 4" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile5Text" text="Name 5" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile1Text" text="none" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile2Text" text="none" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile3Text" text="none" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile4Text" text="none" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile5Text" text="none" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
 
         <Button fx:id="manageButton" text="Manage profiles" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.halignment="CENTER" maxWidth="300">
             <GridPane.margin>
