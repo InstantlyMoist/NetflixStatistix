@@ -22,14 +22,14 @@ public class NetflixStatistix extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         parentWindow = stage;
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/account.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/serie.fxml"));
         stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("NetflixStatistix - Login");
         stage.show();
-        root.getStylesheets().add(getClass().getResource("/css/account.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/css/serie.css").toExternalForm());
         stage.show();
 //        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
 //        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));

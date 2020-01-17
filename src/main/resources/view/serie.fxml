@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml-stylesheet type="text/css" href="resources/css/dataProfile.css"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.seriesController">
+
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25" />
+    </padding>
+
+    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
+
+    <Label fx:id="title" prefHeight="18.0" prefWidth="206.0" text="Series" GridPane.columnSpan="5" />
+
+    <TableView fx:id="table" prefHeight="334.0" prefWidth="652.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+        <columns>
+            <TableColumn prefWidth="131.19997483491898" text="SerieName">
+            </TableColumn>
+            <TableColumn prefWidth="128.0" text="episodesNr">
+            </TableColumn>
+         <TableColumn prefWidth="391.2000274658203" text="Average time per episode" />
+        </columns>
+    </TableView>
+</GridPane>
