@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.addProfileController">
+<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.EditProfileController">
 
     <padding>
         <Insets bottom="25" left="25" right="25" top="25" />
@@ -19,8 +19,8 @@
     <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
     <HBox prefHeight="168.0" prefWidth="434.0" GridPane.rowIndex="2">
         <children>
-            <TextField prefHeight="26.0" prefWidth="110.0" />
-            <TextField prefHeight="26.0" prefWidth="172.0" />
+            <TextField fx:id="userName" prefHeight="26.0" prefWidth="110.0" />
+            <TextField fx:id="birthDate" prefHeight="26.0" prefWidth="172.0" />
         </children>
     </HBox>
     <Label text="Edit Profile" />
@@ -30,6 +30,6 @@
             <Label text="BirthDate" />
         </children>
     </HBox>
-    <Button mnemonicParsing="false" text="Add" GridPane.rowIndex="3" />
+    <Button mnemonicParsing="false" text="Update" GridPane.rowIndex="3" onMouseClicked="#updateProfile"/>
 
 </GridPane>

@@ -97,6 +97,13 @@ public class ProfileController extends Controller implements Initializable {
                 }
                 System.out.println("Profile exists with id " + selected);
                 NetflixStatistix.getSessionData().setSelectedProfileID(selected);
+                try {
+                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/editProfile.fxml"));
+                    root.getStylesheets().add(getClass().getResource("/css/editProfile.css").toExternalForm());
+                    NetflixStatistix.parentWindow.getScene().setRoot(root);
+                } catch (Exception exc) {
+                    exc.printStackTrace();
+                }
                 event.consume();
             });
         });
