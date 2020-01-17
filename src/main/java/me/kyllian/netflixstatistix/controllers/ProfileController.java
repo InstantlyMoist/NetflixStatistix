@@ -1,35 +1,22 @@
 package me.kyllian.netflixstatistix.controllers;
 
-import com.sun.org.apache.xpath.internal.patterns.NodeTestFilter;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import me.kyllian.netflixstatistix.NetflixStatistix;
-import me.kyllian.netflixstatistix.exceptions.InputInvalidException;
 import me.kyllian.netflixstatistix.post.PostBuilder;
-import me.kyllian.netflixstatistix.user.User;
-import me.kyllian.netflixstatistix.user.UserBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import javax.xml.soap.Text;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.regex.Pattern;
+import java.util.*;
 
 public class ProfileController extends Controller implements Initializable {
 
@@ -40,6 +27,8 @@ public class ProfileController extends Controller implements Initializable {
     private Label profileMainText;
 
     private List<Label> texts;
+    private List<ImageView> images;
+    private Map<ImageView, Integer> profileIDs;
 
     @FXML
     private Label profile1Text;
@@ -77,17 +66,33 @@ public class ProfileController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         texts = new ArrayList<>(Arrays.asList(profile1Text, profile2Text, profile3Text, profile4Text, profile5Text));
+        images = new ArrayList<>(Arrays.asList(profilePicture1, profilePicture2, profilePicture3, profilePicture4, profilePicture5));
+        profileIDs = new HashMap<>();
+
 
         logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
-        profilePicture1.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
-        profilePicture2.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
-        profilePicture3.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
-        profilePicture4.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
-        profilePicture5.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
 
         new PostBuilder().withIdentifier("profiles")
                 .withAttribute("userID", NetflixStatistix.getSessionData().getUserID() + "").post(this);
         //get data
+
+        images.forEach(image -> {
+            image.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+            profileIDs.put(image, -1);
+            image.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
+                ImageView pressed = (ImageView) event.getTarget();
+                int selected = profileIDs.get(pressed);
+                if (selected == -1) {
+                    System.out.println("Profile not exist, creating new one");
+                    return;
+                }
+                System.out.println("Profile exists with id " + selected);
+                NetflixStatistix.getSessionData().setSelectedProfileID(selected);
+                event.consume();
+            });
+        });
+
+
     }
 
     @Override
@@ -98,6 +103,7 @@ public class ProfileController extends Controller implements Initializable {
                 JSONArray array = new JSONArray(response);
                 for (int i = 0; i != array.length(); i++) {
                     JSONObject profile = array.getJSONObject(i);
+                    profileIDs.put(images.get(i), profile.getInt("profile_id"));
                     texts.get(i).setText(profile.getString("profile_name"));
                 }
             } catch (JSONException exception) {
@@ -107,7 +113,5 @@ public class ProfileController extends Controller implements Initializable {
         });
     }
 
-    public void profile() {
 
-    }
 }
