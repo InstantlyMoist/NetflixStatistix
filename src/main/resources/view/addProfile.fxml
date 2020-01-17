@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.DataProfileController">
+<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.EditProfileController">
 
     <padding>
         <Insets bottom="25" left="25" right="25" top="25" />
@@ -30,14 +30,6 @@
          <Label text="BirthDate" />
       </children>
    </HBox>
-   <Button mnemonicParsing="false" text="Add" GridPane.rowIndex="3" />
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
+   <Button mnemonicParsing="false" text="Edit" GridPane.rowIndex="3" />
+
 </GridPane>
