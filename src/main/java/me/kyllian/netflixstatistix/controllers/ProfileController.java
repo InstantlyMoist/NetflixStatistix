@@ -176,12 +176,12 @@ public class ProfileController extends Controller implements Initializable {
         deleting = true;
     }
 
-    public void testLogoExistence() {
-        if(logo == null){
-            System.out.println("NULL LOGO");
+    public void TestExistenceOfAllElements() {
+        if(logo == null || profileMainText == null || profile1Text == null || profile2Text == null || profile3Text == null || profile4Text == null || profile5Text == null || profilePicture1 == null || profilePicture2 == null || profilePicture3 == null || profilePicture4 == null || profilePicture5 == null){
+            System.out.println("NULL ELEMENT ProfileController");
         }
         else{
-            System.out.println("NOT NULL LOGO");
+            System.out.println("NOT NULL ELEMENT ProfileController");
         }
     }
 }
