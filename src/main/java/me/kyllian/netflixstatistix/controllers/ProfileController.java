@@ -3,7 +3,9 @@ package me.kyllian.netflixstatistix.controllers;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -84,6 +86,13 @@ public class ProfileController extends Controller implements Initializable {
                 int selected = profileIDs.get(pressed);
                 if (selected == -1) {
                     System.out.println("Profile not exist, creating new one");
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/addProfile.fxml"));
+                        root.getStylesheets().add(getClass().getResource("/css/addProfile.css").toExternalForm());
+                        NetflixStatistix.parentWindow.getScene().setRoot(root);
+                    } catch (Exception exc) {
+                        exc.printStackTrace();
+                    }
                     return;
                 }
                 System.out.println("Profile exists with id " + selected);
