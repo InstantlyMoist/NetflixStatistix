@@ -77,7 +77,7 @@ public class ProfileController extends Controller implements Initializable {
         //get data
 
         images.forEach(image -> {
-            image.setImage(new Image(getClass().getClassLoader().getResource("assets/profilePicture.png").toExternalForm()));
+            image.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
             profileIDs.put(image, -1);
             image.addEventHandler(MouseEvent.MOUSE_CLICKED, (event) -> {
                 ImageView pressed = (ImageView) event.getTarget();
