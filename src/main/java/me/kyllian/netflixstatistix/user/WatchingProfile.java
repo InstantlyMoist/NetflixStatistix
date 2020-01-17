@@ -9,4 +9,12 @@ public class WatchingProfile {
         this.username = username;
         this.birthDate = birthDate;
     }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public long getBirthDate() {
+        return birthDate;
+    }
 }
