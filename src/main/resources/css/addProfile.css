@@ -1,1 +1,18 @@
+.root {
+    -fx-background-color: #171717;
+}
 
+.label {
+    -fx-text-fill: WHITE;
+}
+
+#registerText {
+    -fx-text-fill: #717171;
+}
+
+#loginButton {
+    -fx-background-color: #171717;
+    -fx-border-color: #717171;
+    -fx-border-radius: 5;
+    -fx-text-fill: #717171;
+}
