@@ -1,10 +1,13 @@
-package me.kyllian.netflixstatistix.controllers;
+import javafx.scene.image.ImageView;
+import me.kyllian.netflixstatistix.controllers.ProfileController;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
-@runWith(MockitoJUnitRunner.class)
-class ProfileControllerTest {
+@RunWith(MockitoJUnitRunner.class)
+public class ProfileControllerTest {
 
     @Mock
     private ImageView logo;
@@ -14,6 +17,6 @@ class ProfileControllerTest {
 
     @Test
     public void testTestLogoExistence(){
-        profileController.testTestLogoExistence;
+        profileController.testLogoExistence();
     }
 }
