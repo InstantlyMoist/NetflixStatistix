@@ -175,4 +175,13 @@ public class ProfileController extends Controller implements Initializable {
         editing = false;
         deleting = true;
     }
+
+    public void testLogoExistence() {
+        if(logo == null){
+            System.out.println("NULL LOGO");
+        }
+        else{
+            System.out.println("NOT NULL LOGO");
+        }
+    }
 }
