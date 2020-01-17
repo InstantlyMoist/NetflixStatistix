@@ -3,7 +3,7 @@ package me.kyllian.netflixstatistix.session;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-class SessionDataTest {
+public class SessionDataTest {
 
     @Test
     public void testSetAndGetUserID() {
