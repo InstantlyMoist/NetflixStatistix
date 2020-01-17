@@ -1,11 +1,7 @@
 package me.kyllian.netflixstatistix.post;
 
 
-
-import me.kyllian.netflixstatistix.NetflixStatistix;
 import me.kyllian.netflixstatistix.controllers.Controller;
-import me.kyllian.netflixstatistix.controllers.HomeController;
-import me.kyllian.netflixstatistix.controllers.LoginController;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -18,8 +14,6 @@ import org.apache.http.util.EntityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

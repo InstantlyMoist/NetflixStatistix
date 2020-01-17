@@ -10,26 +10,24 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
+<?import javafx.scene.layout.VBox?>
 <GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.EditProfileController">
 
     <padding>
         <Insets bottom="25" left="25" right="25" top="25" />
     </padding>
 
+
+
     <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-    <HBox prefHeight="168.0" prefWidth="434.0" GridPane.rowIndex="2">
-        <children>
-            <TextField fx:id="userName" prefHeight="26.0" prefWidth="110.0" />
-            <TextField fx:id="birthDate" prefHeight="26.0" prefWidth="172.0" />
-        </children>
+
+    <Label fx:id="updateProfileText" text="Update profile" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="CENTER" minHeight="100"/>
+    <VBox minWidth="350" minHeight="90" GridPane.rowIndex="1" GridPane.columnIndex="0">
+        <TextField fx:id="userName" minHeight="41" minWidth="350.0" promptText="Username"/>
+        <TextField fx:id="birthDate" minHeight="41" minWidth="350.0" promptText="Birthdate (DD-MM-YYYY)"/>
+    </VBox>
+    <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0" minWidth="350" minHeight="41">
+        <Button fx:id="updateButton" mnemonicParsing="false" text="Add" onMouseClicked="#updateProfile" minWidth="350" minHeight="41"/>
     </HBox>
-    <Label text="Edit Profile" />
-    <HBox prefHeight="18.0" prefWidth="278.0" GridPane.rowIndex="1">
-        <children>
-            <Label prefHeight="18.0" prefWidth="116.0" text="UserName" />
-            <Label text="BirthDate" />
-        </children>
-    </HBox>
-    <Button mnemonicParsing="false" text="Update" GridPane.rowIndex="3" onMouseClicked="#updateProfile"/>
 
 </GridPane>
