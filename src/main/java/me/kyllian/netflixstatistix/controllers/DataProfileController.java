@@ -45,9 +45,6 @@ public class DataProfileController extends Controller implements Initializable{
         Platform.runLater(new Runnable(){
             @Override
             public void run() {
-
-
-
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/dataProfile.fxml"));
                     root.getStylesheets().add(getClass().getResource("/css/dataProfile.css").toExternalForm());

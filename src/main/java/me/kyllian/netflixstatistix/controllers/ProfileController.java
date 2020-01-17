@@ -22,6 +22,9 @@ import java.util.*;
 
 public class ProfileController extends Controller implements Initializable {
 
+    private boolean editing = false;
+    private boolean deleting = false;
+
     @FXML
     private ImageView logo;
 
@@ -62,9 +65,6 @@ public class ProfileController extends Controller implements Initializable {
     @FXML
     private ImageView profilePicture5;
 
-    @FXML
-    private Button manageButton;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         texts = new ArrayList<>(Arrays.asList(profile1Text, profile2Text, profile3Text, profile4Text, profile5Text));
@@ -95,15 +95,26 @@ public class ProfileController extends Controller implements Initializable {
                     }
                     return;
                 }
-                System.out.println("Profile exists with id " + selected);
                 NetflixStatistix.getSessionData().setSelectedProfileID(selected);
-                try {
-                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/editProfile.fxml"));
-                    root.getStylesheets().add(getClass().getResource("/css/editProfile.css").toExternalForm());
-                    NetflixStatistix.parentWindow.getScene().setRoot(root);
-                } catch (Exception exc) {
-                    exc.printStackTrace();
+                if (editing) {
+                    try {
+                        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/editProfile.fxml"));
+                        root.getStylesheets().add(getClass().getResource("/css/editProfile.css").toExternalForm());
+                        NetflixStatistix.parentWindow.getScene().setRoot(root);
+                    } catch (Exception exc) {
+                        exc.printStackTrace();
+                    }
+                    return;
                 }
+                if (deleting) {
+                    new PostBuilder()
+                            .withIdentifier("removeProfile")
+                            .withAttribute("profileID", selected + "")
+                            .post(this);
+                    return;
+                }
+                //todo open stats
+                //
                 event.consume();
             });
         });
@@ -113,6 +124,16 @@ public class ProfileController extends Controller implements Initializable {
 
     @Override
     public void handleResponse(String response) {
+        if (response.equalsIgnoreCase("REM_OK")) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+                root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+                NetflixStatistix.parentWindow.getScene().setRoot(root);
+            } catch (Exception exc) {
+                exc.printStackTrace();
+            }
+            return;
+        }
         Platform.runLater(() -> {
             System.out.println(response);
             try {
@@ -129,5 +150,29 @@ public class ProfileController extends Controller implements Initializable {
         });
     }
 
+    public void reset() {
+        profileMainText.setText("Who's watching");
+        editing = false;
+        deleting = false;
+    }
 
+    public void toggleEdit() {
+        if (editing) {
+            reset();
+            return;
+        }
+        profileMainText.setText("Click to edit");
+        editing = true;
+        deleting = false;
+    }
+
+    public void toggleDelete() {
+        if (deleting) {
+            reset();
+            return;
+        }
+        profileMainText.setText("Click to delete");
+        editing = false;
+        deleting = true;
+    }
 }

@@ -13,31 +13,49 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Label?>
-<GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.ProfileController">
+<GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.ProfileController">
 
     <padding>
-        <Insets bottom="10" left="25" right="25" top="25" />
+        <Insets bottom="10" left="25" right="25" top="25"/>
     </padding>
 
-    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" GridPane.halignment="LEFT" GridPane.valignment="TOP" preserveRatio="true" translateX="-110" translateY="-110"/>
+    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" GridPane.halignment="LEFT" GridPane.valignment="TOP"
+               preserveRatio="true" translateX="-110" translateY="-110"/>
 
-        <Label fx:id="profileMainText" text="Who's Watching" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.halignment="CENTER"/>
+    <Label fx:id="profileMainText" text="Who's Watching" GridPane.columnSpan="3" GridPane.columnIndex="1"
+           GridPane.rowIndex="0" GridPane.halignment="CENTER"/>
 
-            <ImageView fx:id="profilePicture1" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-            <ImageView fx:id="profilePicture2" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-            <ImageView fx:id="profilePicture3" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-            <ImageView fx:id="profilePicture4" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-            <ImageView fx:id="profilePicture5" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+    <ImageView fx:id="profilePicture1" fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <ImageView fx:id="profilePicture2" fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    <ImageView fx:id="profilePicture3" fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <ImageView fx:id="profilePicture4" fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+    <ImageView fx:id="profilePicture5" fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
 
-    <Label fx:id="profile1Text" text="none" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile2Text" text="none" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile3Text" text="none" GridPane.columnIndex="2" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile4Text" text="none" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
-    <Label fx:id="profile5Text" text="none" GridPane.columnIndex="4" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+    <Label fx:id="profile1Text"  GridPane.columnIndex="0" GridPane.rowIndex="3"
+           GridPane.halignment="CENTER"/>
+    <Label fx:id="profile2Text"  GridPane.columnIndex="1" GridPane.rowIndex="3"
+           GridPane.halignment="CENTER"/>
+    <Label fx:id="profile3Text"  GridPane.columnIndex="2" GridPane.rowIndex="3"
+           GridPane.halignment="CENTER"/>
+    <Label fx:id="profile4Text" GridPane.columnIndex="3" GridPane.rowIndex="3"
+           GridPane.halignment="CENTER"/>
+    <Label fx:id="profile5Text"  GridPane.columnIndex="4" GridPane.rowIndex="3"
+           GridPane.halignment="CENTER"/>
 
-        <Button fx:id="manageButton" text="Manage profiles" GridPane.columnSpan="3" GridPane.columnIndex="1" GridPane.rowIndex="4" GridPane.halignment="CENTER" maxWidth="300">
-            <GridPane.margin>
-                <Insets top="30"/>
-            </GridPane.margin>
-        </Button>
+    <GridPane.margin>
+        <Insets top="30"/>
+    </GridPane.margin>
+    <Button fx:id="editButton" text="Edit" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="4"
+            minWidth="200" onMouseClicked="#toggleEdit">
+        <GridPane.margin>
+            <Insets top="30"/>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="deleteButton" text="Delete" GridPane.columnIndex="3" GridPane.columnSpan="3" GridPane.rowIndex="4"
+            minWidth="200" onMouseClicked="#toggleDelete">
+        <GridPane.margin>
+            <Insets top="30"/>
+        </GridPane.margin>
+    </Button>
 </GridPane>
