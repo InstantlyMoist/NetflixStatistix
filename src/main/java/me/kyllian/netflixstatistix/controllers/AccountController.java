@@ -20,6 +20,26 @@ public class AccountController extends Controller {
         }
     }
 
+    public void add() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public void edit() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
 
 
 }
