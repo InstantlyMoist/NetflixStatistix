@@ -64,8 +64,8 @@ public class AccountWithProfileController extends Controller implements Initiali
 
     public void back() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

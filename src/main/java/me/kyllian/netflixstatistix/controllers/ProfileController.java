@@ -175,4 +175,14 @@ public class ProfileController extends Controller implements Initializable {
         editing = false;
         deleting = true;
     }
+
+    public void toStatistics() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/statistic.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
 }

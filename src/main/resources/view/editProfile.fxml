@@ -29,6 +29,6 @@
     <HBox alignment="CENTER" minHeight="41" minWidth="350" GridPane.columnIndex="0" GridPane.rowIndex="2">
         <Button fx:id="updateButton" minHeight="41" minWidth="350" mnemonicParsing="false" onMouseClicked="#updateProfile" text="Add" />
     </HBox>
-   <Button mnemonicParsing="false" text="Return" GridPane.rowIndex="3" />
+   <Button mnemonicParsing="false" onMouseClicked="#back" text="Return" GridPane.rowIndex="3" />
 
 </GridPane>

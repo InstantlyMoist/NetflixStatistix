@@ -17,8 +17,6 @@
         <Insets bottom="25" left="25" right="25" top="25" />
     </padding>
 
-    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
-
     <Label fx:id="title" prefHeight="18.0" prefWidth="206.0" text="Movies" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="1" />
 
     <TableView fx:id="table" prefHeight="334.0" prefWidth="652.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">

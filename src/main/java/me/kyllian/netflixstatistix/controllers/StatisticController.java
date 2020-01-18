@@ -10,6 +10,16 @@ public class StatisticController extends Controller {
 
     }
 
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
     public void handleAccountButton(){
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/account.fxml"));

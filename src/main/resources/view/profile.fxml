@@ -40,7 +40,7 @@
             <Insets top="30" />
         </GridPane.margin>
     </Button>
-    <Button fx:id="statistic" minWidth="500"  text="statistic" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="10">
+    <Button fx:id="statistic" minWidth="500"  onMouseClicked="#toStatistics"  text="Statistics" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="10">
         <GridPane.margin>
             <Insets top="15" />
         </GridPane.margin>

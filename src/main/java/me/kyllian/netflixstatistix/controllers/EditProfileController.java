@@ -77,4 +77,14 @@ public class EditProfileController extends Controller implements Initializable {
         birthDate.setText(split[2] + "-" + split[1] + "-" + split[0]);
         birthDate.commitValue();
     }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
 }
