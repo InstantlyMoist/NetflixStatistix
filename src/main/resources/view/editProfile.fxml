@@ -30,14 +30,5 @@
         <Button fx:id="updateButton" minHeight="41" minWidth="350" mnemonicParsing="false" onMouseClicked="#updateProfile" text="Add" />
     </HBox>
    <Button mnemonicParsing="false" text="Return" GridPane.rowIndex="3" />
-   <columnConstraints>
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
 
 </GridPane>
