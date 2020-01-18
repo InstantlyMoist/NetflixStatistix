@@ -38,11 +38,4 @@
         <RowConstraints maxHeight="325.6" minHeight="325.2" prefHeight="325.6" />
         <RowConstraints />
     </rowConstraints>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
 </GridPane>

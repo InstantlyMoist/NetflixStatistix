@@ -60,4 +60,14 @@ public class StatisticController extends Controller {
         }
     }
 
+    public void handlePercentageSeriesPerEpisode(){ // showt movie under 16 with highest duration.
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/percentagePerEpisode.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/percentagePerEpisode.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
 }

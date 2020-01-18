@@ -25,6 +25,6 @@
       <Button fx:id="accountWithProfile" mnemonicParsing="false" onMouseClicked="#handleAccountWithProfileButton" prefWidth="199.0" text="All accounts with 1 profile" GridPane.columnIndex="2" GridPane.rowIndex="3" />
       <Button fx:id="MovieUnder" mnemonicParsing="false" onMouseClicked="#handleMovieUnderButton" prefHeight="26.0" prefWidth="250.0" text="Movie under 16 with longest time" GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button mnemonicParsing="false" text="Return" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" text="Percentage for episode" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <Button fx:id="handlePercentageSeriesPerEpisode" onMouseClicked="#handlePercentageSeriesPerEpisode" mnemonicParsing="false" prefHeight="26.0" prefWidth="199.0" text="Percentage for episode" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    </children>
 </GridPane>
