@@ -23,11 +23,11 @@
 
     <TableView fx:id="table" prefHeight="391.0" prefWidth="650.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <columns>
-            <TableColumn prefWidth="131.19997483491898" text="SerieName">
+            <TableColumn fx:id="tableTitle" prefWidth="131.19997483491898" text="Title">
             </TableColumn>
-            <TableColumn prefWidth="128.0" text="episodesNr">
+            <TableColumn fx:id="tableID" prefWidth="128.0" text="Episode ID">
             </TableColumn>
-         <TableColumn prefWidth="391.2000274658203" text="Average time per episode" />
+         <TableColumn fx:id="tableAverage" prefWidth="391.2000274658203" text="Average time per episode" />
         </columns>
     </TableView>
    <Button mnemonicParsing="false" text="Return" GridPane.rowIndex="3" />
