@@ -22,6 +22,6 @@
       <Button fx:id="Series" onMouseClicked="#handleSeriesButton" mnemonicParsing="false" prefWidth="200.0" text="Series" GridPane.columnIndex="1" GridPane.rowIndex="2" />
       <Button fx:id="Accounts" onMouseClicked="#handleAccountButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="200.0" text="Accounts" GridPane.columnIndex="1" />
       <Button fx:id="accountWithProfile" onMouseClicked="#handleAccountWithProfileButton" mnemonicParsing="false" prefWidth="200.0" text="All accounts with 1 profile" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-      <Button fx:id="MovieUnder"  mnemonicParsing="false" prefHeight="26.0" prefWidth="250.0" text="Movie under 16 with longest time" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="MovieUnder" onMouseClicked="#handleMovieUnderButton"  mnemonicParsing="false" prefHeight="26.0" prefWidth="250.0" text="Movie under 16 with longest time" GridPane.columnIndex="1" GridPane.rowIndex="3" />
    </children>
 </GridPane>

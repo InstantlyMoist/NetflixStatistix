@@ -50,4 +50,14 @@ public class statisticController extends Controller {
         }
     }
 
+    public void handleMovieUnderButton(){ // showt movie under 16 with highest duration.
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/movieUnder.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/movieUnder.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
 }
