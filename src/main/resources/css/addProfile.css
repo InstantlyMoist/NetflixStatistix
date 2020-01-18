@@ -1,0 +1,27 @@
+.root {
+    -fx-background-color: #171717;
+}
+
+.label {
+    -fx-text-fill: WHITE;
+}
+
+#addProfileText {
+    -fx-text-fill: White;
+    -fx-font-family: Roboto;
+    -fx-font-size: 40px;
+}
+
+#userName, #birthDate {
+    -fx-background-color: #2F2F2F;
+    -fx-background-insets: 1px;
+    -fx-prompt-text-fill: #717171;
+    -fx-text-inner-color: #717171;
+}
+
+#addButton {
+    -fx-background-color: #171717;
+    -fx-border-color: #717171;
+    -fx-border-radius: 5;
+    -fx-text-fill: #717171;
+}

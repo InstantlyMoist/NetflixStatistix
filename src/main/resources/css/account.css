@@ -1,0 +1,7 @@
+.root {
+    -fx-background-color: #171717;
+}
+
+#title{
+    -fx-text-fill: WHITE;
+}

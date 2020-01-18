@@ -2,21 +2,21 @@ package me.kyllian.netflixstatistix.user;
 
 import java.io.*;
 
-public class Adress {
+public class Address {
 
     private String street;
     private String number;
     private String postalCode;
     private String residence;
 
-    public Adress(String street, String number, String postalCode, String residence) {
+    public Address(String street, String number, String postalCode, String residence) {
         this.street = street;
         this.number = number;
         this.postalCode = postalCode;
         this.residence = residence;
     }
 
-    public Adress(String dataString) {
+    public Address(String dataString) {
         String[] split = dataString.split(":");
         this.street = split[0];
         this.number = split[1];

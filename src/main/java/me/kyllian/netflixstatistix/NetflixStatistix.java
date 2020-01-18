@@ -1,89 +1,48 @@
 package me.kyllian.netflixstatistix;
 
-import me.kyllian.netflixstatistix.database.DatabaseConnection;
-import me.kyllian.netflixstatistix.database.DatabaseHandler;
-import me.kyllian.netflixstatistix.database.PasswordEncryptor;
-import me.kyllian.netflixstatistix.exceptions.*;
-import me.kyllian.netflixstatistix.user.User;
-import me.kyllian.netflixstatistix.user.UserBuilder;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
+import me.kyllian.netflixstatistix.session.SessionData;
 
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.Scanner;
+public class NetflixStatistix extends Application {
 
-public class NetflixStatistix {
+    public static Stage parentWindow;
+
+    private static SessionData sessionData;
 
     public static void main(String[] args) {
-        // Open registration/login prompt
-        //
-        // Once logged in, construct User object using the Registration data
-        // if the user has been logged in, fetch data from the database.
-        //
-        // Open profiles screen
-        // A profile will contain the watching data
-        // There will be classes for series and films so we can create/remove series easily.
+        sessionData = new SessionData();
+        launch(NetflixStatistix.class);
+    }
 
-        Scanner reader = new Scanner(System.in);
-        //TODO: Make a GUI around this, check local data first to see if password is saved
-        /*System.out.println("Please login!");
-        System.out.print("email: ");
-        String email = reader.nextLine();
-        System.out.print("password: ");
-        String password = reader.nextLine();
-        try {
-            User user = new UserBuilder()
-                    .withEmail(email)
-                    .withPassword(password)
-                    .login();
-        } catch (InputInvalidException IIE) {
-            System.out.println(IIE.getFoundTypes());
-        }*/
+    @Override
+    public void start(Stage stage) throws Exception {
+        parentWindow = stage;
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
 
-        System.out.println("Please register!");
-        System.out.print("Enter first name: ");
-        String firstName = reader.nextLine();
-        System.out.print("Enter last name: ");
-        String lastName = reader.nextLine();
-        System.out.print("Enter email: ");
-        String email = reader.nextLine();
-        System.out.print("Enter password: ");
-        String password = reader.nextLine();
-        System.out.print("Enter repeat password: ");
-        String repeatPassword = reader.nextLine();
-        System.out.print("Enter street name: ");
-        String streetName = reader.nextLine();
-        System.out.print("Enter number + addition: ");
-        String number = reader.nextLine();
-        System.out.print("Enter postal code: ");
-        String postalCode = reader.nextLine();
-        System.out.print("Enter residence : ");
-        String residence = reader.nextLine();
-        System.out.print("Enter day of birth: ");
-        int day = Integer.parseInt(reader.nextLine());
-        System.out.print("Enter month of birth: ");
-        int month = Integer.parseInt(reader.nextLine());
-        System.out.print("Enter year of birth: ");
-        int year = Integer.parseInt(reader.nextLine());
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("NetflixStatistix - Login");
+        stage.show();
+        root.getStylesheets().add(getClass().getResource("/css/statistic.css").toExternalForm());
+        stage.show();
+//        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+//        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
+//
+//        Scene scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.setTitle("NetflixStatistix - Login");
+//        stage.show();
+//        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+//        stage.show();
+    }
 
-        try {
-            User user = new UserBuilder()
-                    .withFirstName(firstName)
-                    .withLastName(lastName)
-                    .withEmail(email)
-                    .withDate(day, month, year)
-                    .withAdress(streetName, number, postalCode, residence)
-                    .withPassword(password)
-                    .checkRepeatPassword(repeatPassword)
-                    .build();
-            new DatabaseConnection().connect().uploadUser(user).disconnect();
-            System.out.println("Input validated!");
-            // TODO: Connect to database and upload user
-        } catch (InputInvalidException IIE) {
-            System.out.println(IIE.getFoundTypes());
-        } catch (SQLException SE) {
-            SE.printStackTrace();
-            System.out.println("Uploading failed");
-        }
-        // Uer object create succesfdully
+    public static SessionData getSessionData() {
+        return sessionData;
     }
 }

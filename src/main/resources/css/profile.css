@@ -1,0 +1,25 @@
+.root {
+    -fx-background-color: rgb(20,20,20);
+}
+
+#profileMainText {
+    -fx-text-fill: White;
+    -fx-font-family: Roboto;
+    -fx-font-size: 40px;
+ }
+
+#profile1Text, #profile2Text, #profile3Text, #profile4Text, #profile5Text {
+    -fx-text-fill: White;
+    -fx-font-family: Roboto;
+}
+
+.button {
+    -fx-background-color: #171717;
+    -fx-border-color: #717171;
+    -fx-border-radius: 5;
+    -fx-text-fill: #717171;
+}
+
+#profilePicture1, #profilePicture2, #profilePicture3, #profilePicture4, #profilePicture5 {
+    -fx-background-color: white;
+}

@@ -1,4 +1,4 @@
-package me.kyllian.netflixstatistix.database;
+package me.kyllian.netflixstatistix.post;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
