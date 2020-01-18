@@ -1,13 +1,76 @@
 package me.kyllian.netflixstatistix.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import me.kyllian.netflixstatistix.NetflixStatistix;
+import me.kyllian.netflixstatistix.models.AccountModel;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public class AccountController extends Controller {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class AccountController extends Controller implements Initializable {
+
+    @FXML
+    private TableView<AccountModel> table;
+
+    @FXML
+    private TableColumn<AccountModel, String> tableFirstName;
+
+    @FXML
+    private TableColumn<AccountModel, String> tableLastName;
+
+    @FXML
+    private TableColumn<AccountModel, String> tableEMail;
+
+    @FXML
+    private TableColumn<AccountModel, Long> tableBirthDate;
+
+    @FXML
+    private TableColumn<AccountModel, String> tableStreet;
+
+    @FXML
+    private TableColumn<AccountModel, String> tableNumber;
+
+    @FXML
+    private TableColumn<AccountModel, String> tableResidence;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        tableFirstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
+        tableLastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+        tableEMail.setCellValueFactory(new PropertyValueFactory<>("EMail"));
+        tableBirthDate.setCellValueFactory(new PropertyValueFactory<>("BirthDate"));
+        tableStreet.setCellValueFactory(new PropertyValueFactory<>("Street"));
+        tableNumber.setCellValueFactory(new PropertyValueFactory<>("Number"));
+        tableResidence.setCellValueFactory(new PropertyValueFactory<>("Residence"));
+    }
+
     @Override
     public void handleResponse(String response) {
-
+        List<AccountModel> AccountModels = new ArrayList<>();
+        try {
+            JSONArray array = new JSONArray(response);
+            for (int i = 0; i != array.length(); i++) {
+                JSONObject data = array.getJSONObject(i);
+                AccountModels.add(new AccountModel(data.getString("FirstName"), data.getString("LastName"), data.getString("EMail"), data.getLong("BirthDate"), data.getString("Street"), data.getString("Number"), data.getString("Residence")));
+            }
+        } catch (JSONException exception) {
+            System.out.println("Error reading JSON from server");
+            exception.printStackTrace();
+        }
+        table.setItems(FXCollections.observableArrayList(AccountModels));
+        System.out.println(response);
     }
 
     public void back() {
@@ -19,27 +82,4 @@ public class AccountController extends Controller {
             exc.printStackTrace();
         }
     }
-
-    public void add() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
-            NetflixStatistix.parentWindow.getScene().setRoot(root);
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        }
-    }
-
-    public void edit() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
-            NetflixStatistix.parentWindow.getScene().setRoot(root);
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        }
-    }
-
-
-
 }
