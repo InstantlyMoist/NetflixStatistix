@@ -23,9 +23,9 @@
 
     <TableView fx:id="table" prefHeight="334.0" prefWidth="652.0" GridPane.columnIndex="0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <columns>
-            <TableColumn prefWidth="311.9999778866768" text="MovieName">
+            <TableColumn fx:id="movieNames" prefWidth="311.9999778866768" text="MovieName">
             </TableColumn>
-            <TableColumn prefWidth="338.4000244140625" text="ProfilesWatched">
+            <TableColumn fx:id="amount" prefWidth="338.4000244140625" text="ProfilesWatched">
             </TableColumn>
         </columns>
     </TableView>
