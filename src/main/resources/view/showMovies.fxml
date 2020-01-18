@@ -29,5 +29,5 @@
             </TableColumn>
         </columns>
     </TableView>
-   <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Return" GridPane.rowIndex="3" />
+   <Button onMouseClicked="#back" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Return" GridPane.rowIndex="3" />
 </GridPane>

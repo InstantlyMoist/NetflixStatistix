@@ -16,6 +16,6 @@
             </columns>
         </TableView>
         <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="209.0" text="Accounts with 1 profile" />
-      <Button layoutX="518.0" layoutY="361.0" mnemonicParsing="false" text="Return" />
+      <Button onMouseClicked="#back" layoutX="518.0" layoutY="361.0" mnemonicParsing="false" text="Return" />
     </children>
 </Pane>

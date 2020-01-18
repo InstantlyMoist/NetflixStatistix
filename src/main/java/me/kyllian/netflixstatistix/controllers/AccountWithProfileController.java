@@ -2,10 +2,13 @@ package me.kyllian.netflixstatistix.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import me.kyllian.netflixstatistix.NetflixStatistix;
 import me.kyllian.netflixstatistix.models.SerieModel;
 import me.kyllian.netflixstatistix.models.SingleProfileModel;
 import me.kyllian.netflixstatistix.post.PostBuilder;
@@ -57,5 +60,15 @@ public class AccountWithProfileController extends Controller implements Initiali
         }
         table.setItems(FXCollections.observableArrayList(singleProfileModels));
         System.out.println(response);
+    }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
     }
 }
