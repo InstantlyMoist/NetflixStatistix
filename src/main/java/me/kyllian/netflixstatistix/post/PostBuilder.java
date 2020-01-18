@@ -26,8 +26,8 @@ public class PostBuilder {
 
     public PostBuilder() {
         httpClient = HttpClients.createDefault();
-        httpPost = new HttpPost("http://localhost:8080");
-        //httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
+        //httpPost = new HttpPost("http://localhost:8080");
+        httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
         attributes = new ArrayList<>();
     }
 
