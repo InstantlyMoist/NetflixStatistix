@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class seriesController extends Controller implements Initializable {
+public class SeriesController extends Controller implements Initializable {
 
     @FXML
     private TableView<SerieModel> table;

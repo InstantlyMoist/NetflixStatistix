@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-public class addProfileController extends Controller {
+public class AddProfileController extends Controller {
 
     @FXML
     private Button addButton;

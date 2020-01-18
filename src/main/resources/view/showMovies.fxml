@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.showMoviesController">
+<GridPane alignment="CENTER" prefHeight="500" prefWidth="700" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.ShowMoviesController">
 
     <padding>
         <Insets bottom="25" left="25" right="25" top="25" />

@@ -4,7 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import me.kyllian.netflixstatistix.NetflixStatistix;
 
-public class statisticController extends Controller {
+public class StatisticController extends Controller {
     @Override
     public void handleResponse(String response) {
 
