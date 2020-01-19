@@ -10,13 +10,13 @@
    <children>
       <TableView layoutX="8.0" layoutY="38.0" prefHeight="315.0" prefWidth="576.0">
         <columns>
-          <TableColumn prefWidth="88.79998779296875" text="first_name" />
-          <TableColumn minWidth="0.0" prefWidth="82.4000244140625" text="last_name" />
-            <TableColumn minWidth="0.0" prefWidth="85.5999755859375" text="Email" />
-            <TableColumn minWidth="0.0" prefWidth="68.800048828125" text="Birth_date" />
-            <TableColumn minWidth="0.0" prefWidth="64.79998779296875" text="street" />
-            <TableColumn minWidth="0.0" prefWidth="72.800048828125" text="number" />
-            <TableColumn minWidth="0.0" prefWidth="113.5999755859375" text="residence" />
+          <TableColumn fx:id="tableFirstName" prefWidth="88.79998779296875" text="first_name" />
+          <TableColumn fx:id="tableLastName" minWidth="0.0" prefWidth="82.4000244140625" text="last_name" />
+            <TableColumn fx:id="tableEMail" minWidth="0.0" prefWidth="85.5999755859375" text="Email" />
+            <TableColumn fx:id="tableBirthDate" minWidth="0.0" prefWidth="68.800048828125" text="Birth_date" />
+            <TableColumn fx:id="tableStreet" minWidth="0.0" prefWidth="64.79998779296875" text="street" />
+            <TableColumn fx:id="tableNumber" minWidth="0.0" prefWidth="72.800048828125" text="number" />
+            <TableColumn fx:id="tableResidence" minWidth="0.0" prefWidth="113.5999755859375" text="residence" />
         </columns>
       </TableView>
       <Button layoutX="25.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Edit" />

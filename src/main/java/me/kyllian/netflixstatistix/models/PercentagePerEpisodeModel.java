@@ -5,20 +5,21 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class PercentagePerEpisodeModel {
 
-    private SimpleStringProperty eMailUser;
+    private SimpleStringProperty emailUser;
     private SimpleStringProperty serie;
     private SimpleIntegerProperty episode;
     private SimpleIntegerProperty averageTime;
 
-    public PercentagePerEpisodeModel(String eMailUser, String serie, int episode, int averageTime) {
-        this.eMailUser = new SimpleStringProperty(eMailUser);
+    public PercentagePerEpisodeModel(String emailUser, String serie, int episode, int averageTime) {
+        this.emailUser = new SimpleStringProperty(emailUser);
         this.serie = new SimpleStringProperty(serie);
         this.episode = new SimpleIntegerProperty(episode);
         this.averageTime = new SimpleIntegerProperty(averageTime);
     }
 
-    public String geteMailUser() {
-        return eMailUser.get();
+
+    public String getEmailUser() {
+        return emailUser.get();
     }
 
     public String getSerie() {
