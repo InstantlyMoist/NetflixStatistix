@@ -88,7 +88,7 @@ public class ProfileController extends Controller implements Initializable {
                     System.out.println("Profile not exist, creating new one");
                     try {
                         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/addProfile.fxml"));
-                        root.getStylesheets().add(getClass().getResource("/css/addProfile.css").toExternalForm());
+                        root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                         NetflixStatistix.parentWindow.getScene().setRoot(root);
                     } catch (Exception exc) {
                         exc.printStackTrace();
@@ -99,7 +99,7 @@ public class ProfileController extends Controller implements Initializable {
                 if (editing) {
                     try {
                         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/editProfile.fxml"));
-                        root.getStylesheets().add(getClass().getResource("/css/editProfile.css").toExternalForm());
+                        root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                         NetflixStatistix.parentWindow.getScene().setRoot(root);
                     } catch (Exception exc) {
                         exc.printStackTrace();
@@ -127,7 +127,7 @@ public class ProfileController extends Controller implements Initializable {
         if (response.equalsIgnoreCase("REM_OK")) {
             try {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-                root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+                root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                 NetflixStatistix.parentWindow.getScene().setRoot(root);
             } catch (Exception exc) {
                 exc.printStackTrace();
@@ -179,7 +179,7 @@ public class ProfileController extends Controller implements Initializable {
     public void toStatistics() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/statistic.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

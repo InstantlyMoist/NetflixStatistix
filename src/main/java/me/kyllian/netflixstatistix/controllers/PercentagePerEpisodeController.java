@@ -25,19 +25,19 @@ public class PercentagePerEpisodeController extends Controller implements Initia
     //bekeken percentage van de totale tijdsduur.
 
     @FXML
-    private TableView<PercentagePerEpisodeController> table;
+    private TableView<PercentagePerEpisodeModel> table;
 
     @FXML
-    private TableColumn<PercentagePerEpisodeController, String> tableEMailUser;
+    private TableColumn<PercentagePerEpisodeModel, String> tableEMailUser;
 
     @FXML
-    private TableColumn<PercentagePerEpisodeController, String> tableSerie;
+    private TableColumn<PercentagePerEpisodeModel, String> tableSerie;
 
     @FXML
-    private TableColumn<PercentagePerEpisodeController, Integer> tableEpisode;
+    private TableColumn<PercentagePerEpisodeModel, Integer> tableEpisode;
 
     @FXML
-    private TableColumn<PercentagePerEpisodeController, Integer> tableAverageTime;
+    private TableColumn<PercentagePerEpisodeModel, Integer> tableAverageTime;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -67,7 +67,6 @@ public class PercentagePerEpisodeController extends Controller implements Initia
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/statistic.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

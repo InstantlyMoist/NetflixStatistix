@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.AddProfileController">
+<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.AddProfileController">
 
     <padding>
         <Insets bottom="25" left="25" right="25" top="25" />
@@ -25,9 +25,9 @@
         <TextField fx:id="birthDate" minHeight="41" minWidth="350.0" promptText="Birthdate (DD-MM-YYYY)" />
     </VBox>
     <HBox alignment="CENTER" minHeight="41" minWidth="350" GridPane.columnIndex="0" GridPane.rowIndex="2">
-        <Button fx:id="addButton" minHeight="41" minWidth="350" mnemonicParsing="false" onMouseClicked="#addProfile" text="Add" />
+        <Button fx:id="addButton" minHeight="41" minWidth="350" mnemonicParsing="false" onMouseClicked="#addProfile" prefWidth="148.0" text="Add" />
     </HBox>
-   <Button mnemonicParsing="false" text="Return" GridPane.rowIndex="3" />
+   <Button mnemonicParsing="false" minHeight="41" minWidth="350" onMouseClicked="#back" text="Return" GridPane.rowIndex="3" />
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>

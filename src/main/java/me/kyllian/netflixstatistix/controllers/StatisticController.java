@@ -13,7 +13,7 @@ public class StatisticController extends Controller {
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -23,7 +23,7 @@ public class StatisticController extends Controller {
     public void handleAccountButton(){
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/account.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/account.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -33,7 +33,7 @@ public class StatisticController extends Controller {
     public void handleMoviesButton(){
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/showMovies.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/showMovies.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -43,7 +43,7 @@ public class StatisticController extends Controller {
     public void handleSeriesButton(){
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/serie.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/serie.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -53,7 +53,7 @@ public class StatisticController extends Controller {
     public void handleAccountWithProfileButton(){
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/accountWithProfile.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/AccountWithProfile.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -63,7 +63,7 @@ public class StatisticController extends Controller {
     public void handleMovieUnderButton(){ // showt movie under 16 with highest duration.
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/movieUnder.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/movieUnder.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -73,7 +73,7 @@ public class StatisticController extends Controller {
     public void handlePercentageSeriesPerEpisode(){ // showt movie under 16 with highest duration.
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/percentagePerEpisode.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/percentagePerEpisode.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

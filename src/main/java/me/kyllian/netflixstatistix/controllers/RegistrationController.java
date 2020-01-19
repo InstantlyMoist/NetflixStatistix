@@ -142,7 +142,6 @@ public class RegistrationController extends Controller implements Initializable 
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -164,7 +163,6 @@ public class RegistrationController extends Controller implements Initializable 
                 NetflixStatistix.getSessionData().setUserID(Integer.parseInt(userID));
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-                    root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
                     NetflixStatistix.parentWindow.getScene().setRoot(root);
                 } catch (Exception exc) {
                     exc.printStackTrace();

@@ -62,7 +62,7 @@ public class EditProfileController extends Controller implements Initializable {
         if (response.equalsIgnoreCase("OK")) {
             try {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-                root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+                root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                 NetflixStatistix.parentWindow.getScene().setRoot(root);
             } catch (Exception exc) {
                 exc.printStackTrace();
@@ -80,8 +80,7 @@ public class EditProfileController extends Controller implements Initializable {
 
     public void back() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

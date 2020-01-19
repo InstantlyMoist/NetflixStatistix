@@ -19,27 +19,48 @@ import java.util.concurrent.Executors;
 
 public class PostBuilder {
 
+    private boolean localTesting = false; // State for testing
+
     private HttpClient httpClient;
     private HttpPost httpPost;
     private List<NameValuePair> attributes;
 
 
+    /**
+     * Initializes PostBuilder, sets up post request and starts accepting data by calling
+     */
     public PostBuilder() {
         httpClient = HttpClients.createDefault();
-        //httpPost = new HttpPost("http://localhost:8080");
-        httpPost = new HttpPost("https://netflixstatistixserver.herokuapp.com");
+        httpPost = new HttpPost(localTesting ? "http://localhost:8080" : "https://netflixstatistixserver.herokuapp.com");
         attributes = new ArrayList<>();
     }
 
+    /**
+     *
+     * @param identifier Sends information to server what data should be used for
+     * @return self
+     */
     public PostBuilder withIdentifier(String identifier) {
         attributes.add(new BasicNameValuePair("identifier", identifier));
         return this;
     }
 
+    /**
+     *
+     * @param name Identifier of the given value
+     * @param value Data that the server can handle
+     * @return self
+     */
+
     public PostBuilder withAttribute(String name, String value) {
         attributes.add(new BasicNameValuePair(name, value));
         return this;
     }
+
+    /**
+     * Handles sending the post request to the server
+     * @param controller controller to handle response with
+     */
 
     public void post(Controller controller) {
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -56,7 +77,6 @@ public class PostBuilder {
                 exc.printStackTrace();
             }
             controller.handleResponse(responseString);
-            //NetflixStatistix.getControllerHandler().getLoginController().handleLogin(responseString);
         });
     }
 

@@ -140,7 +140,7 @@ public class EditAccountController extends Controller {
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

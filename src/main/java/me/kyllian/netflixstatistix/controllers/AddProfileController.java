@@ -51,7 +51,16 @@ public class AddProfileController extends Controller {
     public void handleResponse(String response) {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

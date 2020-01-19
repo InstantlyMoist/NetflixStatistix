@@ -29,17 +29,8 @@ public class NetflixStatistix extends Application {
         stage.setScene(scene);
         stage.setTitle("NetflixStatistix - Login");
         stage.show();
-        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
+        root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         stage.show();
-//        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
-//        stage.getIcons().add(new Image(getClass().getResource("/assets/logo.png").toExternalForm()));
-//
-//        Scene scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.setTitle("NetflixStatistix - Login");
-//        stage.show();
-//        root.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
-//        stage.show();
     }
 
     public static SessionData getSessionData() {
