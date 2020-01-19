@@ -19,7 +19,7 @@
 
     <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.valignment="TOP" />
 
-    <Label fx:id="title" prefHeight="18.0" prefWidth="206.0" text="Average time" GridPane.columnSpan="5" />
+    <Label fx:id="title" prefHeight="18.0" prefWidth="206.0" text="Average time (Does not work yet)" GridPane.columnSpan="5" />
 
     <TableView fx:id="table" prefHeight="391.0" prefWidth="650.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <columns>

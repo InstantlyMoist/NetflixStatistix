@@ -68,6 +68,7 @@ public class AccountController extends Controller implements Initializable {
         } catch (JSONException exception) {
             System.out.println("Error reading JSON from server");
             exception.printStackTrace();
+            return;
         }
         table.setItems(FXCollections.observableArrayList(accountModels));
         System.out.println(response);

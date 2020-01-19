@@ -61,7 +61,6 @@ public class PercentagePerEpisodeController extends Controller implements Initia
             exception.printStackTrace();
         }
         table.setItems(FXCollections.observableArrayList(percentagePerEpisodeModels));
-        System.out.println(response);
     }
 
     public void back() {

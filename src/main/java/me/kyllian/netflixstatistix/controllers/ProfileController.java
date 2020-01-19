@@ -135,7 +135,6 @@ public class ProfileController extends Controller implements Initializable {
             return;
         }
         Platform.runLater(() -> {
-            System.out.println(response);
             try {
                 JSONArray array = new JSONArray(response);
                 for (int i = 0; i != array.length(); i++) {

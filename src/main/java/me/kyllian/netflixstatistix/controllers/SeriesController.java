@@ -59,7 +59,6 @@ public class SeriesController extends Controller implements Initializable {
             exception.printStackTrace();
         }
         table.setItems(FXCollections.observableArrayList(serieModels));
-        System.out.println(response);
     }
 
     public void back() {

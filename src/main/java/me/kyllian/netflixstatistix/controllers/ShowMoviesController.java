@@ -57,7 +57,6 @@ public class ShowMoviesController extends Controller implements Initializable {
             exception.printStackTrace();
         }
         table.setItems(FXCollections.observableArrayList(movieModels));
-        System.out.println(response);
     }
 
     public void back() {

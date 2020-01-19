@@ -27,7 +27,7 @@ public class NetflixStatistix extends Application {
 
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("NetflixStatistix - Login");
+        stage.setTitle("NetflixStatistix - Kyllian Warmerdam (2158151) | Afrash Ramjit (2151957) | Caelan van Eijnsbergen (2153459)");
         stage.show();
         root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         stage.show();

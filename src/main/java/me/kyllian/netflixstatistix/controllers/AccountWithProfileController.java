@@ -57,6 +57,7 @@ public class AccountWithProfileController extends Controller implements Initiali
         } catch (JSONException exception) {
             System.out.println("Error reading JSON from server");
             exception.printStackTrace();
+            return;
         }
         table.setItems(FXCollections.observableArrayList(singleProfileModels));
         System.out.println(response);
@@ -64,7 +65,7 @@ public class AccountWithProfileController extends Controller implements Initiali
 
     public void back() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
             root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {

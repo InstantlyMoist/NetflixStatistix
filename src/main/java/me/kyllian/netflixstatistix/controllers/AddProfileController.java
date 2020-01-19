@@ -24,18 +24,22 @@ public class AddProfileController extends Controller {
     @FXML
     private TextField birthDate;
 
+    public String getStyle(boolean state) {
+        return state ? "-fx-border-color : green" : "-fx-border-color: red";
+    }
+
 
     public void addProfile() {
         boolean nameOK = Pattern.matches("(\\b[A-Z]{1}[a-z]+)", userName.getText());
-        userName.setStyle(nameOK ? "-fx-border-color : green" : "-fx-border-color: red");
+        userName.setStyle(getStyle(nameOK));
 
         boolean birthOK = Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthDate.getText());
-        birthDate.setStyle(birthOK ? "-fx-border-color : green" : "-fx-border-color: red");
+        birthDate.setStyle(getStyle(birthOK));
         Date date = null;
         try {
             date = (new SimpleDateFormat("dd-MM-yyyy").parse(birthDate.getText()));
         } catch (ParseException exc) {
-
+            birthOK = false;
         }
         if (birthOK && nameOK) {
             new PostBuilder()

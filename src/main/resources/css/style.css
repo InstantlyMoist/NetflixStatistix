@@ -30,3 +30,7 @@
 #profileMainText {
     -fx-font-size: 40px;
 }
+
+#registerText {
+    -fx-text-fill: #717171;
+}
