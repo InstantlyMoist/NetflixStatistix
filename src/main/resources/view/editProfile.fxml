@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-
 <?import javafx.scene.layout.VBox?>
+
 <GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.EditProfileController">
 
     <padding>
@@ -21,13 +21,14 @@
 
     <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
 
-    <Label fx:id="updateProfileText" text="Update profile" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.halignment="CENTER" minHeight="100"/>
-    <VBox minWidth="350" minHeight="90" GridPane.rowIndex="1" GridPane.columnIndex="0">
-        <TextField fx:id="userName" minHeight="41" minWidth="350.0" promptText="Username"/>
-        <TextField fx:id="birthDate" minHeight="41" minWidth="350.0" promptText="Birthdate (DD-MM-YYYY)"/>
+    <Label fx:id="updateProfileText" minHeight="100" text="Update profile" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+    <VBox minHeight="90" minWidth="350" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <TextField fx:id="userName" minHeight="41" minWidth="350.0" promptText="Username" />
+        <TextField fx:id="birthDate" minHeight="41" minWidth="350.0" promptText="Birthdate (DD-MM-YYYY)" />
     </VBox>
-    <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0" minWidth="350" minHeight="41">
-        <Button fx:id="updateButton" mnemonicParsing="false" text="Add" onMouseClicked="#updateProfile" minWidth="350" minHeight="41"/>
+    <HBox alignment="CENTER" minHeight="41" minWidth="350" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button fx:id="updateButton" minHeight="41" minWidth="350" mnemonicParsing="false" onMouseClicked="#updateProfile" text="Add" />
     </HBox>
+   <Button mnemonicParsing="false" onMouseClicked="#back" text="Return" GridPane.rowIndex="3" />
 
 </GridPane>

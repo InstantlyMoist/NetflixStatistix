@@ -1,6 +1,6 @@
 package me.kyllian.netflixstatistix.controllers;
 
-public class accountWithProfileController extends Controller {
+public class ShowMoviesFromAccountController extends Controller {
     @Override
     public void handleResponse(String response) {
 

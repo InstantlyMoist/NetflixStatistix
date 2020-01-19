@@ -61,7 +61,7 @@ public class LoginController extends Controller implements Initializable {
     public void toRegister() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/registration.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
@@ -93,7 +93,7 @@ public class LoginController extends Controller implements Initializable {
                 }
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-                    root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+                    root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                     NetflixStatistix.parentWindow.getScene().setRoot(root);
                 } catch (Exception exc) {
                     exc.printStackTrace();

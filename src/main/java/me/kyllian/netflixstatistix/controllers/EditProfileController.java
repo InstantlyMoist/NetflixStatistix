@@ -35,17 +35,21 @@ public class EditProfileController extends Controller implements Initializable {
         //logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
     }
 
+    public String getStyle(boolean state) {
+        return state ? "-fx-border-color : green" : "-fx-border-color: red";
+    }
+
     public void updateProfile() {
         boolean nameOK = Pattern.matches("(\\b[A-Z]{1}[a-z]+)", userName.getText());
-        userName.setStyle(nameOK ? "-fx-border-color : green" : "-fx-border-color: red");
+        userName.setStyle(getStyle(nameOK));
 
         boolean birthOK = Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthDate.getText());
-        birthDate.setStyle(birthOK ? "-fx-border-color : green" : "-fx-border-color: red");
+        birthDate.setStyle(getStyle(birthOK));
         Date date = null;
         try {
             date = (new SimpleDateFormat("dd-MM-yyyy").parse(birthDate.getText()));
         } catch (ParseException exc) {
-
+            birthOK = false;
         }
         if (birthOK && nameOK) {
             new PostBuilder()
@@ -62,7 +66,7 @@ public class EditProfileController extends Controller implements Initializable {
         if (response.equalsIgnoreCase("OK")) {
             try {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-                root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+                root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                 NetflixStatistix.parentWindow.getScene().setRoot(root);
             } catch (Exception exc) {
                 exc.printStackTrace();
@@ -76,5 +80,14 @@ public class EditProfileController extends Controller implements Initializable {
         String[] split = receivedDate.substring(0, 10).split("-");
         birthDate.setText(split[2] + "-" + split[1] + "-" + split[0]);
         birthDate.commitValue();
+    }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
     }
 }

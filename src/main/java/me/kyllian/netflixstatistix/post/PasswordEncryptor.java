@@ -7,6 +7,12 @@ public class PasswordEncryptor {
 
     private static MessageDigest messageDigest;
 
+    /**
+     * Encrypts a password with MD5
+     * @param password
+     * @return encrypted password
+     */
+
     public static String encrypt(String password) {
         try {
             messageDigest = MessageDigest.getInstance("MD5");

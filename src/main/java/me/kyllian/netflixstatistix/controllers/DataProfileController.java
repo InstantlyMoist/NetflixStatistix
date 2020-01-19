@@ -47,7 +47,7 @@ public class DataProfileController extends Controller implements Initializable{
             public void run() {
                 try {
                     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/dataProfile.fxml"));
-                    root.getStylesheets().add(getClass().getResource("/css/dataProfile.css").toExternalForm());
+                    root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
                     NetflixStatistix.parentWindow.getScene().setRoot(root);
                 } catch (Exception exc) {
                     exc.printStackTrace();

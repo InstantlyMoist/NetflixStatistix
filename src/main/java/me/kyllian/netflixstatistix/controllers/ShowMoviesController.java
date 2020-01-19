@@ -3,10 +3,13 @@ package me.kyllian.netflixstatistix.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import me.kyllian.netflixstatistix.NetflixStatistix;
 import me.kyllian.netflixstatistix.models.MovieModel;
 import me.kyllian.netflixstatistix.post.PostBuilder;
 import org.json.JSONArray;
@@ -18,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class showMoviesController extends Controller implements Initializable {
+public class ShowMoviesController extends Controller implements Initializable {
 
     @FXML
     private TableView<MovieModel> table;
@@ -54,6 +57,15 @@ public class showMoviesController extends Controller implements Initializable {
             exception.printStackTrace();
         }
         table.setItems(FXCollections.observableArrayList(movieModels));
-        System.out.println(response);
+    }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
     }
 }

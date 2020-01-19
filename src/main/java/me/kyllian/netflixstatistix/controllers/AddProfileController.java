@@ -13,7 +13,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-public class addProfileController extends Controller {
+public class AddProfileController extends Controller {
 
     @FXML
     private Button addButton;
@@ -24,18 +24,22 @@ public class addProfileController extends Controller {
     @FXML
     private TextField birthDate;
 
+    public String getStyle(boolean state) {
+        return state ? "-fx-border-color : green" : "-fx-border-color: red";
+    }
+
 
     public void addProfile() {
         boolean nameOK = Pattern.matches("(\\b[A-Z]{1}[a-z]+)", userName.getText());
-        userName.setStyle(nameOK ? "-fx-border-color : green" : "-fx-border-color: red");
+        userName.setStyle(getStyle(nameOK));
 
         boolean birthOK = Pattern.matches("\\d{2}-\\d{2}-\\d{4}", birthDate.getText());
-        birthDate.setStyle(birthOK ? "-fx-border-color : green" : "-fx-border-color: red");
+        birthDate.setStyle(getStyle(birthOK));
         Date date = null;
         try {
             date = (new SimpleDateFormat("dd-MM-yyyy").parse(birthDate.getText()));
         } catch (ParseException exc) {
-
+            birthOK = false;
         }
         if (birthOK && nameOK) {
             new PostBuilder()
@@ -51,7 +55,16 @@ public class addProfileController extends Controller {
     public void handleResponse(String response) {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/profile.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
