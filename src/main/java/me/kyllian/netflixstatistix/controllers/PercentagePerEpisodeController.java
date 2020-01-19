@@ -41,10 +41,10 @@ public class PercentagePerEpisodeController extends Controller implements Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tableEMailUser.setCellValueFactory(new PropertyValueFactory<>("EmailUser"));
+        /*tableEMailUser.setCellValueFactory(new PropertyValueFactory<>("EmailUser"));
         tableSerie.setCellValueFactory(new PropertyValueFactory<>("Serie"));
         tableEpisode.setCellValueFactory(new PropertyValueFactory<>("Episode"));
-        tableAverageTime.setCellValueFactory(new PropertyValueFactory<>("AverageTime"));
+        tableAverageTime.setCellValueFactory(new PropertyValueFactory<>("AverageTime"));*/
     }
 
     @Override
@@ -67,6 +67,7 @@ public class PercentagePerEpisodeController extends Controller implements Initia
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

@@ -9,7 +9,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import me.kyllian.netflixstatistix.NetflixStatistix;
-import me.kyllian.netflixstatistix.models.MovieModel;
 import me.kyllian.netflixstatistix.models.SerieModel;
 import me.kyllian.netflixstatistix.post.PostBuilder;
 import org.json.JSONArray;
