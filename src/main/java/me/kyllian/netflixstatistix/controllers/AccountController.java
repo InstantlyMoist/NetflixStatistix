@@ -58,18 +58,18 @@ public class AccountController extends Controller implements Initializable {
 
     @Override
     public void handleResponse(String response) {
-        List<AccountModel> AccountModels = new ArrayList<>();
+        List<AccountModel> accountModels = new ArrayList<>();
         try {
             JSONArray array = new JSONArray(response);
             for (int i = 0; i != array.length(); i++) {
                 JSONObject data = array.getJSONObject(i);
-                AccountModels.add(new AccountModel(data.getString("FirstName"), data.getString("LastName"), data.getString("EMail"), data.getLong("BirthDate"), data.getString("Street"), data.getString("Number"), data.getString("Residence")));
+                accountModels.add(new AccountModel(data.getString("FirstName"), data.getString("LastName"), data.getString("EMail"), data.getLong("BirthDate"), data.getString("Street"), data.getString("Number"), data.getString("Residence")));
             }
         } catch (JSONException exception) {
             System.out.println("Error reading JSON from server");
             exception.printStackTrace();
         }
-        table.setItems(FXCollections.observableArrayList(AccountModels));
+        table.setItems(FXCollections.observableArrayList(accountModels));
         System.out.println(response);
     }
 
