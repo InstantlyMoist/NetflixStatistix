@@ -23,12 +23,12 @@
 
     <TableView fx:id="table" prefHeight="391.0" prefWidth="650.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <columns>
-            <TableColumn fx:id="tableTitle" prefWidth="131.19997483491898" text="Email user">
+            <TableColumn fx:id="tableEMailUser" prefWidth="131.19997483491898" text="Email user">
             </TableColumn>
-            <TableColumn fx:id="tableID" prefWidth="128.0" text="Serie">
+            <TableColumn fx:id="tableSerie" prefWidth="128.0" text="Serie">
             </TableColumn>
-            <TableColumn fx:id="tableAverage" prefWidth="148.00006103515625" text="Episodes" />
-         <TableColumn fx:id="tableAverage1" prefWidth="148.00006103515625" text="Average time" />
+            <TableColumn fx:id="tableEpisode" prefWidth="148.00006103515625" text="Episodes" />
+         <TableColumn fx:id="tableAverageTime" prefWidth="148.00006103515625" text="Average time" />
         </columns>
     </TableView>
     <Button mnemonicParsing="false" onMouseClicked="#back" text="Return" GridPane.rowIndex="3" />

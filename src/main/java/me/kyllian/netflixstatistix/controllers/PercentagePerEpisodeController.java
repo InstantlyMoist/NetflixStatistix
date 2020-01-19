@@ -41,10 +41,10 @@ public class PercentagePerEpisodeController extends Controller implements Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        /*tableEMailUser.setCellValueFactory(new PropertyValueFactory<>("EmailUser"));
+        tableEMailUser.setCellValueFactory(new PropertyValueFactory<>("EmailUser"));
         tableSerie.setCellValueFactory(new PropertyValueFactory<>("Serie"));
         tableEpisode.setCellValueFactory(new PropertyValueFactory<>("Episode"));
-        tableAverageTime.setCellValueFactory(new PropertyValueFactory<>("AverageTime"));*/
+        tableAverageTime.setCellValueFactory(new PropertyValueFactory<>("AverageTime"));
     }
 
     @Override
