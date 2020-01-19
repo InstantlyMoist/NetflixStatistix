@@ -66,7 +66,7 @@ public class SeriesController extends Controller implements Initializable {
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/statistic.css").toExternalForm());
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();
