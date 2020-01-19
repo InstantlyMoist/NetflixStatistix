@@ -2,13 +2,13 @@
 Eindopdracht programmeren 2
 
 # Made by
-Kyllian Warmerdam (nummer)
-Afrash Ramjit (nummer)
-Caelan van Eijnsbergen (nummer)
+Kyllian Warmerdam (215184)
+Afrash Ramjit (2151957)
+Caelan van Eijnsbergen (2153459)
 
 # Requirements
 
-Java installed
+Java
 
 # How to use
 1) Download the .jar file
