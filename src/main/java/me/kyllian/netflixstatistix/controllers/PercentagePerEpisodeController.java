@@ -39,6 +39,8 @@ public class PercentagePerEpisodeController extends Controller implements Initia
     @FXML
     private TableColumn<PercentagePerEpisodeModel, Integer> tableAverageTime;
 
+    //TODO deze nog werkend krijgen
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableEMailUser.setCellValueFactory(new PropertyValueFactory<>("EmailUser"));

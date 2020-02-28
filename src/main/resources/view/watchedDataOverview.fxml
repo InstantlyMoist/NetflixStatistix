@@ -23,10 +23,11 @@
 
     <TableView fx:id="table" prefHeight="341.0" prefWidth="421.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <columns>
-            <TableColumn fx:id="tableTitle" prefWidth="148.80001145601273" text="programs watched">
+            <TableColumn fx:id="tableProfiles" prefWidth="117.59999924898148" text="profiles">
             </TableColumn>
-            <TableColumn fx:id="tableID" prefWidth="271.19996643066406" text="programs for adding or removing">
+            <TableColumn fx:id="tableProgramsWatched" prefWidth="145.6000518798828" text="programs watched">
             </TableColumn>
+         <TableColumn fx:id="tableAddRemove" prefWidth="145.6000518798828" text="add/remove program" />
         </columns>
     </TableView>
    <Button mnemonicParsing="false" text="Add program" GridPane.rowIndex="3" />
@@ -38,4 +39,17 @@
    <TextField prefHeight="26.0" prefWidth="91.0" GridPane.columnIndex="3" />
    <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
    <TextField GridPane.columnIndex="4" GridPane.rowIndex="2" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>

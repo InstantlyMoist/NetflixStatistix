@@ -45,6 +45,8 @@ public class AccountController extends Controller implements Initializable {
     @FXML
     private TableColumn<AccountModel, String> tableResidence;
 
+    //TODO Weergeeft op dit moment geen accounts als we erop klikken en buttons doen nog niks. deze buttons zijn edit, delete,create
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableFirstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
