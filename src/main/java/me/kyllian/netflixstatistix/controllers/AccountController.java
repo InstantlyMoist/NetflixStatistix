@@ -85,4 +85,13 @@ public class AccountController extends Controller implements Initializable {
             exc.printStackTrace();
         }
     }
+
+    public void edit() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/editAccount.fxml"));
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
 }
