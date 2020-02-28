@@ -193,4 +193,13 @@ public class ProfileController extends Controller implements Initializable {
             exc.printStackTrace();
         }
     }
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
 }
