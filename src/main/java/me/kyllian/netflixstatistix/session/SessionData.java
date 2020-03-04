@@ -9,6 +9,7 @@ public class SessionData {
 
     private int userID;
     private int selectedProfileID;
+    private String email;
 
     public int getSelectedProfileID() {
         return selectedProfileID;
@@ -24,5 +25,13 @@ public class SessionData {
 
     public void setUserID(int userID) {
         this.userID = userID;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

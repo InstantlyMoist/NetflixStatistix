@@ -1,12 +1,10 @@
 package me.kyllian.netflixstatistix.controllers;
 
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -113,8 +111,13 @@ public class ProfileController extends Controller implements Initializable {
                             .post(this);
                     return;
                 }
-                //todo open stats
-                //
+                try {
+                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/watchedDataOverview.fxml"));
+                    root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+                    NetflixStatistix.parentWindow.getScene().setRoot(root);
+                } catch (Exception exc) {
+                    exc.printStackTrace();
+                }
                 event.consume();
             });
         });
@@ -178,6 +181,16 @@ public class ProfileController extends Controller implements Initializable {
     public void toStatistics() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public void back() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/login.fxml"));
             root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {

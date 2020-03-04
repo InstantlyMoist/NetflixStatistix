@@ -26,13 +26,11 @@ public class EditProfileController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // load profiles
         new PostBuilder()
                 .withIdentifier("getProfile")
                 .withAttribute("userID", NetflixStatistix.getSessionData().getUserID() + "")
                 .withAttribute("profileID", NetflixStatistix.getSessionData().getSelectedProfileID() + "")
                 .post(this);
-        //logo.setImage(new Image(getClass().getClassLoader().getResource("assets/logo.png").toExternalForm()));
     }
 
     public String getStyle(boolean state) {
@@ -84,7 +82,8 @@ public class EditProfileController extends Controller implements Initializable {
 
     public void back() {
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/profile.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
             exc.printStackTrace();

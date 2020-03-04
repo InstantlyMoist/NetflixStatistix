@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import me.kyllian.netflixstatistix.NetflixStatistix;
 import me.kyllian.netflixstatistix.models.AccountModel;
+import me.kyllian.netflixstatistix.post.PostBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,37 +34,35 @@ public class AccountController extends Controller implements Initializable {
     @FXML
     private TableColumn<AccountModel, String> tableEMail;
 
-    @FXML
-    private TableColumn<AccountModel, Long> tableBirthDate;
-
-    @FXML
-    private TableColumn<AccountModel, String> tableStreet;
-
-    @FXML
-    private TableColumn<AccountModel, String> tableNumber;
-
-    @FXML
-    private TableColumn<AccountModel, String> tableResidence;
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableFirstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         tableLastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
         tableEMail.setCellValueFactory(new PropertyValueFactory<>("EMail"));
-        tableBirthDate.setCellValueFactory(new PropertyValueFactory<>("BirthDate"));
-        tableStreet.setCellValueFactory(new PropertyValueFactory<>("Street"));
-        tableNumber.setCellValueFactory(new PropertyValueFactory<>("Number"));
-        tableResidence.setCellValueFactory(new PropertyValueFactory<>("Residence"));
+
+        new PostBuilder()
+                .withIdentifier("accounts")
+                .post(this);
     }
 
     @Override
     public void handleResponse(String response) {
+        if (response.equalsIgnoreCase("OK")) {
+            try {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/account.fxml"));
+                root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+                NetflixStatistix.parentWindow.getScene().setRoot(root);
+            } catch (Exception exc) {
+                exc.printStackTrace();
+            }
+            return;
+        }
         List<AccountModel> accountModels = new ArrayList<>();
         try {
             JSONArray array = new JSONArray(response);
             for (int i = 0; i != array.length(); i++) {
                 JSONObject data = array.getJSONObject(i);
-                accountModels.add(new AccountModel(data.getString("FirstName"), data.getString("LastName"), data.getString("EMail"), data.getLong("BirthDate"), data.getString("Street"), data.getString("Number"), data.getString("Residence")));
+                accountModels.add(new AccountModel(data.getString("first_name"), data.getString("last_name"), data.getString("email")));
             }
         } catch (JSONException exception) {
             System.out.println("Error reading JSON from server");
@@ -77,6 +76,34 @@ public class AccountController extends Controller implements Initializable {
     public void back() {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public void edit() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
+
+    public void delete() {
+        if (table.getSelectionModel().getSelectedItem() == null) return;
+        new PostBuilder()
+                .withIdentifier("removeAccount")
+                .withAttribute("email", table.getSelectionModel().getSelectedItem().getEMail())
+                .post(this);
+    }
+
+    public void create() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
             root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
