@@ -16,8 +16,6 @@ public class EditAccountController extends Controller implements Initializable {
     @FXML
     private Button submitButton;
 
-    //TODO update account buttin fixen
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new PostBuilder()

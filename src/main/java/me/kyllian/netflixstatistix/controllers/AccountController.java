@@ -34,9 +34,6 @@ public class AccountController extends Controller implements Initializable {
     @FXML
     private TableColumn<AccountModel, String> tableEMail;
 
-
-    //TODO  buttons doen nog niks. deze buttons zijn edit ,create
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableFirstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
@@ -87,10 +84,8 @@ public class AccountController extends Controller implements Initializable {
     }
 
     public void edit() {
-        if (table.getSelectionModel().getSelectedItem() == null) return;
-        NetflixStatistix.getSessionData().setEmail(table.getSelectionModel().getSelectedItem().getEMail());
         try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/editAccount.fxml"));
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/statistic.fxml"));
             root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
             NetflixStatistix.parentWindow.getScene().setRoot(root);
         } catch (Exception exc) {
