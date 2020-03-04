@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import me.kyllian.netflixstatistix.NetflixStatistix;
 import me.kyllian.netflixstatistix.models.PercentagePerEpisodeModel;
+import me.kyllian.netflixstatistix.post.PostBuilder;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,13 +37,15 @@ public class PercentagePerEpisodeController extends Controller implements Initia
     @FXML
     private TableColumn<PercentagePerEpisodeModel, Integer> tableAverageTime;
 
-    //TODO deze nog werkend krijgen
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tableSerie.setCellValueFactory(new PropertyValueFactory<>("Serie"));
         tableEpisode.setCellValueFactory(new PropertyValueFactory<>("Episode"));
         tableAverageTime.setCellValueFactory(new PropertyValueFactory<>("AverageTime"));
+
+        new PostBuilder()
+                .withIdentifier("averageTime")
+                .post(this);
     }
 
     @Override
@@ -52,7 +55,7 @@ public class PercentagePerEpisodeController extends Controller implements Initia
             JSONArray array = new JSONArray(response);
             for (int i = 0; i != array.length(); i++) {
                 JSONObject data = array.getJSONObject(i);
-                percentagePerEpisodeModels.add(new PercentagePerEpisodeModel(data.getString("Serie"), data.getInt("Episode"), data.getInt("AverageTime")));
+                percentagePerEpisodeModels.add(new PercentagePerEpisodeModel(data.getString("name_serie"), data.getInt("episode_id"), data.getInt("average")));
             }
         } catch (JSONException exception) {
             System.out.println("Error reading JSON from server");

@@ -35,7 +35,7 @@ public class AccountController extends Controller implements Initializable {
     private TableColumn<AccountModel, String> tableEMail;
 
 
-    //TODO Weergeeft op dit moment geen accounts als we erop klikken en buttons doen nog niks. deze buttons zijn edit ,create
+    //TODO  buttons doen nog niks. deze buttons zijn edit ,create
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

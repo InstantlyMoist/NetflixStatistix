@@ -23,8 +23,6 @@
 
     <TableView fx:id="table" prefHeight="391.0" prefWidth="650.0" GridPane.columnSpan="4" GridPane.halignment="CENTER" GridPane.rowIndex="2">
         <columns>
-            <TableColumn fx:id="tableEMailUser" prefWidth="131.19997483491898" text="Email user">
-            </TableColumn>
             <TableColumn fx:id="tableSerie" prefWidth="128.0" text="Serie">
             </TableColumn>
             <TableColumn fx:id="tableEpisode" prefWidth="148.00006103515625" text="Episodes" />
