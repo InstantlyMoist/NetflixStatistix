@@ -7,20 +7,13 @@ public class AccountModel {
 
     private SimpleStringProperty firstName;
     private SimpleStringProperty lastName;
-    private SimpleStringProperty eMail;
-    private SimpleLongProperty birthDate;
-    private SimpleStringProperty street;
-    private SimpleStringProperty number;
-    private SimpleStringProperty residence;
+    private SimpleStringProperty EMail;
 
-    public AccountModel(String firstName, String lastName, String eMail, long birthDate, String street, String number, String residence) {
+
+    public AccountModel(String firstName, String lastName, String EMail) {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
-        this.eMail = new SimpleStringProperty(eMail);
-        this.birthDate = new SimpleLongProperty(birthDate);
-        this.street = new SimpleStringProperty(street);
-        this.number = new SimpleStringProperty(number);
-        this.residence = new SimpleStringProperty(residence);
+        this.EMail = new SimpleStringProperty(EMail);
     }
 
     public String getFirstName() {
@@ -31,23 +24,8 @@ public class AccountModel {
         return lastName.get();
     }
 
-    public String geteMail() {
-        return eMail.get();
+    public String getEMail() {
+        return EMail.get();
     }
-
-    public long getBirthDate() {
-        return birthDate.get();
-    }
-
-    public String getStreet() {
-        return street.get();
-    }
-
-    public String getNumber() {
-        return number.get();
-    }
-
-    public String getResidence() {
-        return residence.get();
-    }
+    
 }

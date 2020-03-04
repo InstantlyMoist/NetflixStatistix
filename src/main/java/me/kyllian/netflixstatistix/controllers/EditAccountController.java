@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import me.kyllian.netflixstatistix.NetflixStatistix;
+import me.kyllian.netflixstatistix.post.PostBuilder;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,12 +20,15 @@ public class EditAccountController extends Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        new PostBuilder()
+                .withIdentifier("getAccount")
+                .withAttribute("email", NetflixStatistix.getSessionData().getEmail())
+                .post(this);
     }
 
     @Override
     public void handleResponse(String response) {
-
+        System.out.println(response);
     }
 
     public void back() {

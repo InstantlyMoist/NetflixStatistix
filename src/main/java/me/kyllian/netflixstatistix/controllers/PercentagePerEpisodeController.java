@@ -28,9 +28,6 @@ public class PercentagePerEpisodeController extends Controller implements Initia
     private TableView<PercentagePerEpisodeModel> table;
 
     @FXML
-    private TableColumn<PercentagePerEpisodeModel, String> tableEMailUser;
-
-    @FXML
     private TableColumn<PercentagePerEpisodeModel, String> tableSerie;
 
     @FXML
@@ -43,7 +40,6 @@ public class PercentagePerEpisodeController extends Controller implements Initia
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tableEMailUser.setCellValueFactory(new PropertyValueFactory<>("EmailUser"));
         tableSerie.setCellValueFactory(new PropertyValueFactory<>("Serie"));
         tableEpisode.setCellValueFactory(new PropertyValueFactory<>("Episode"));
         tableAverageTime.setCellValueFactory(new PropertyValueFactory<>("AverageTime"));
@@ -56,7 +52,7 @@ public class PercentagePerEpisodeController extends Controller implements Initia
             JSONArray array = new JSONArray(response);
             for (int i = 0; i != array.length(); i++) {
                 JSONObject data = array.getJSONObject(i);
-                percentagePerEpisodeModels.add(new PercentagePerEpisodeModel(data.getString("EmailUser"), data.getString("Serie"), data.getInt("Episode"), data.getInt("AverageTime")));
+                percentagePerEpisodeModels.add(new PercentagePerEpisodeModel(data.getString("Serie"), data.getInt("Episode"), data.getInt("AverageTime")));
             }
         } catch (JSONException exception) {
             System.out.println("Error reading JSON from server");

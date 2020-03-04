@@ -113,8 +113,6 @@ public class ProfileController extends Controller implements Initializable {
                             .post(this);
                     return;
                 }
-                //todo open stats
-                //
                 event.consume();
             });
         });
