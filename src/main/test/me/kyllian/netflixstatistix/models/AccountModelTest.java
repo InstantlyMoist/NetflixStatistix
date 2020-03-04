@@ -13,5 +13,6 @@ public class AccountModelTest {
         assertEquals(accountModel.getFirstName(), "Caelan");
         assertEquals(accountModel.getLastName(), "Eijnsbergen");
         assertEquals(accountModel.getEMail(), "a@a.nl");
+
     }
 }
