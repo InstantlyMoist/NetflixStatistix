@@ -113,6 +113,13 @@ public class ProfileController extends Controller implements Initializable {
                             .post(this);
                     return;
                 }
+                try {
+                    Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/watchedDataOverview.fxml"));
+                    root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+                    NetflixStatistix.parentWindow.getScene().setRoot(root);
+                } catch (Exception exc) {
+                    exc.printStackTrace();
+                }
                 event.consume();
             });
         });
@@ -183,13 +190,7 @@ public class ProfileController extends Controller implements Initializable {
         }
     }
     public void toWatchedDataScreen() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/watchedDataOverview.fxml"));
-            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
-            NetflixStatistix.parentWindow.getScene().setRoot(root);
-        } catch (Exception exc) {
-            exc.printStackTrace();
-        }
+
     }
     public void back() {
         try {
