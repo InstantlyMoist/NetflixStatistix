@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.StatisticController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="190.4000244140625" minWidth="0.0" prefWidth="0.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="254.4000244140625" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="254.4000244140625" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="311.5999755859375" minWidth="10.0" prefWidth="295.5999755859375" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="86.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="160.0" minHeight="0.0" prefHeight="36.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="160.0" minHeight="0.0" prefHeight="40.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="227.0" minHeight="7.0" prefHeight="34.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="278.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="85.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="80.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="118.0" minHeight="10.0" prefHeight="118.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Button fx:id="Movies" mnemonicParsing="false" onMouseClicked="#handleMoviesButton" prefHeight="26.0" prefWidth="250.0" text="Movies" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+      <Button fx:id="Series" mnemonicParsing="false" onMouseClicked="#handleSeriesButton" prefWidth="250.0" text="Series" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      <Button fx:id="Accounts" mnemonicParsing="false" onMouseClicked="#handleAccountButton" prefHeight="26.0" prefWidth="250.0" text="Accounts" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <Button fx:id="accountWithProfile" mnemonicParsing="false" onMouseClicked="#handleAccountWithProfileButton" prefWidth="250.0" text="All accounts with 1 profile" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+      <Button fx:id="MovieUnder" mnemonicParsing="false" onMouseClicked="#handleMovieUnderButton" prefHeight="26.0" prefWidth="250.0" text="Movie under 16 with longest time" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+      <Button alignment="CENTER" contentDisplay="CENTER" minWidth="0.0" mnemonicParsing="false" onMouseClicked="#back" prefWidth="250.0" text="Return" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+      <Button fx:id="handlePercentageSeriesPerEpisode" mnemonicParsing="false" onMouseClicked="#handlePercentageSeriesPerEpisode" prefHeight="26.0" prefWidth="250.0" text="Percentage for episode" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   </children>
+</GridPane>

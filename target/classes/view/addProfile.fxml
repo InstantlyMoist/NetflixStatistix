@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane alignment="CENTER" prefHeight="255.0" prefWidth="327.0" styleClass="root" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.AddProfileController">
+
+    <padding>
+        <Insets bottom="25" left="25" right="25" top="25" />
+    </padding>
+
+    <ImageView fx:id="logo" fitHeight="100" fitWidth="100" preserveRatio="true" translateX="-160" translateY="-20" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+
+    <Label fx:id="addProfileText" minHeight="100" text="Add profile" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+    <VBox minHeight="90" minWidth="350" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <TextField fx:id="userName" minHeight="41" minWidth="350.0" promptText="Username" />
+        <TextField fx:id="birthDate" minHeight="41" minWidth="350.0" promptText="Birthdate (DD-MM-YYYY)" />
+    </VBox>
+    <HBox alignment="CENTER" minHeight="41" minWidth="350" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button fx:id="addButton" minHeight="41" minWidth="350" mnemonicParsing="false" onMouseClicked="#addProfile" prefWidth="148.0" text="Add" />
+    </HBox>
+   <Button mnemonicParsing="false" minHeight="41" minWidth="350" onMouseClicked="#back" text="Return" GridPane.rowIndex="3" />
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+</GridPane>

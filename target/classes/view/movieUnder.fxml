@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.kyllian.netflixstatistix.controllers.MovieUnderController">
+   <children>
+      <Button layoutX="274.0" layoutY="337.0" mnemonicParsing="false" onMouseClicked="#back" text="Return" textAlignment="CENTER" />
+      <Label fx:id="text" layoutX="205.0" layoutY="229.0" prefHeight="17.0" prefWidth="190.0" textAlignment="CENTER" textFill="WHITE" />
+   </children>
+</Pane>
