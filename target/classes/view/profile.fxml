@@ -19,11 +19,11 @@
 
     <Label fx:id="profileMainText" text="Who's Watching" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
 
-    <ImageView fx:id="profilePicture1"  fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-    <ImageView fx:id="profilePicture2"  fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-    <ImageView fx:id="profilePicture3"  fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-    <ImageView fx:id="profilePicture4"  fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-    <ImageView fx:id="profilePicture5"  fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+    <ImageView fx:id="profilePicture1"   fitHeight="100" fitWidth="100" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <ImageView fx:id="profilePicture2"   fitHeight="100" fitWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+    <ImageView fx:id="profilePicture3"   fitHeight="100" fitWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <ImageView fx:id="profilePicture4"   fitHeight="100" fitWidth="100" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+    <ImageView fx:id="profilePicture5"   fitHeight="100" fitWidth="100" GridPane.columnIndex="4" GridPane.rowIndex="2" />
 
     <Label fx:id="profile1Text"  GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
     <Label fx:id="profile2Text"  GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
@@ -45,11 +45,7 @@
             <Insets top="15" />
         </GridPane.margin>
     </Button>
-    <Button fx:id="watchedData" minWidth="500"  onMouseClicked="#toWatchedDataScreen"  text="Watched data" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="11">
-        <GridPane.margin>
-            <Insets top="15" />
-        </GridPane.margin>
-    </Button>
+
     <Button fx:id="return" minWidth="500"  onMouseClicked="#back"  text="Return to login screen" GridPane.columnIndex="0" GridPane.columnSpan="5" GridPane.rowIndex="12">
         <GridPane.margin>
             <Insets top="15" />

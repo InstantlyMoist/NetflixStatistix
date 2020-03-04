@@ -18,7 +18,7 @@
       <Button onMouseClicked="#edit" layoutX="25.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Edit" />
       <Button onMouseClicked="#delete" layoutX="267.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Delete" />
       <Label layoutX="14.0" layoutY="14.0" prefHeight="17.0" prefWidth="135.0" text="Accounts" />
-      <Button layoutX="149.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Create" />
+      <Button onMouseClicked="#create" layoutX="149.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Create" />
       <Button onMouseClicked="#back" layoutX="505.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Return" />
    </children>
 </Pane>
