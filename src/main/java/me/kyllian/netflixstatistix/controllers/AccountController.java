@@ -105,4 +105,14 @@ public class AccountController extends Controller implements Initializable {
                 .withAttribute("email", table.getSelectionModel().getSelectedItem().getEMail())
                 .post(this);
     }
+
+    public void create() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/registration.fxml"));
+            root.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            NetflixStatistix.parentWindow.getScene().setRoot(root);
+        } catch (Exception exc) {
+            exc.printStackTrace();
+        }
+    }
 }
