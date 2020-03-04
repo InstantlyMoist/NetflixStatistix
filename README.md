@@ -1,17 +1,27 @@
 # NetflixStatistix
+
 Eindopdracht programmeren 2
 
-# Made by
-Kyllian Warmerdam (215184)
-Afrash Ramjit (2151957)
-Caelan van Eijnsbergen (2153459)
+#### Made by:
+- Afrash Ramjit (2151957)
+- Kyllian Warmerdam (2158151)
 
-# Requirements
+## Requirements
 
-Java
+- Java installed
 
-# How to use
-1) Download the .jar file
-2) Double click to open the jar 
-2A) If this does not work, open CMD and redirect to the folder you've put the .jar file in. Run the file by typing 'java -jar NetflixStatistix.jar'
-3) Enjoy :)
+## Usage
+
+- Download .jar file
+- Execute .jar file by double-clicking, if this doesn't work open in CMD
+
+For more information on how to open a .jar file in CMD, please refer to https://windowsreport.com/jar-file-windows/
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
